@@ -1,57 +1,71 @@
-## **Projet E-commerce - Challenge JS**
-Le but de ce projet est de créer un site e-commerce complet en utilisant HTML, CSS, et JavaScript pour le frontend, et Express avec une base de données MySQL pour le backend. 
+# **Blazing Fail - Plateforme E-commerce de Cartes à Collectionner**
 
-## **Blazing Fail -  Boutique de Cartes et Boosters Pokémon & Yu-Gi-Oh**
-Bienvenue dans l'univers de Blazing Fail, votre nouvelle destination en ligne pour acheter des cartes et boosters Pokémon et Yu-Gi-Oh. 
-Notre site e-commerce propose une large sélection de produits pour les passionnés de jeux de cartes à collectionner. 
+Découvrez Blazing Fail, votre boutique en ligne spécialisée dans l'univers des cartes à collectionner Pokémon et Yu-Gi-Oh ! Notre plateforme offre une expérience d'achat complète dédiée aux collectionneurs et passionnés de TCG (Trading Card Games).
 
-Le but de ce projet est de créer un site e-commerce complet pour Blazing Fail en utilisant HTML, CSS, et JavaScript pour le frontend, et Express avec une base de données MySQL pour le backend. 
-Ce projet mettra en pratique les compétences acquises dans le module Challenge JS à Ynov Informatique, Bachelor 1.
+## **À Propos du Projet**
 
-## **Fonctionnalités :**
-**Catalogue de Produits :** Plus de 50 articles disponibles avec des détails complets tel que le nom, la description, le prix, des images, et des caractéristiques spécifiques à l'article ! 
-(langue, état, édition et licence)
+Cette application web e-commerce a été développée dans le cadre du module Challenge JS du Bachelor 1 Informatique à Ynov. L'objectif était de concevoir une solution complète combinant les technologies frontend (HTML, CSS, JavaScript) et backend (Express.js, MySQL) pour créer une boutique en ligne fonctionnelle et moderne.
 
-**Affichage et Interaction :** Affiche une liste de produits avec le nom, le prix et une image. Au survol, la seconde image du produit apparaît. Les produits en promotion sont distingués.
+## **Caractéristiques Principales**
 
-**Filtrage et Tri :** Permet aux utilisateurs de filtrer le catalogue par différentes caractéristiques et de trier les produits par prix croissant ou décroissant.
+### **Catalogue Enrichi**
+Notre inventaire comprend plus de 50 références soigneusement sélectionnées. Chaque produit dispose d'informations détaillées incluant nom, description complète, tarification, galerie d'images et spécifications techniques (langue, condition, édition, licence).
 
-**Détails du Produit :** Affichage des détails d’un produit avec une description tronquée à 150 caractères et un bouton pour afficher la description complète. Inclue toutes les caractéristiques du produit et un carrousel d'images.
+### **Interface Utilisateur Interactive**
+- Présentation visuelle des articles avec nom, prix et aperçu photo
+- Animation au survol révélant une image secondaire
+- Mise en évidence spéciale des articles en promotion
+- Navigation intuitive et responsive
 
-**Gestion du Panier :** Vous pouvez ajouter des produits ou des quantités de produits au panier, modifier ou supprimer des articles du panier, et passer des commandes. Cela met à jour les quantités en stock après chaque achat.
+### **Système de Recherche Avancé**
+Les utilisateurs peuvent affiner leur recherche grâce à :
+- Filtres multicritères selon les caractéristiques produits
+- Tri personnalisable par ordre de prix (ascendant/descendant)
+- Navigation par catégories
 
-**Favoris :** Permettez aux utilisateurs d’ajouter des produits à leurs favoris, de les consulter et de les supprimer.
+### **Pages Produit Détaillées**
+- Descriptions complètes avec système de troncature à 150 caractères
+- Bouton d'expansion pour affichage intégral
+- Carrousel d'images haute définition
+- Spécifications techniques complètes
 
-**Adresse de Livraison :** Il vous est possible de trouver votre adresse en France.
- 
+### **Panier d'Achat Intelligent**
+- Ajout/modification des quantités en temps réel
+- Suppression d'articles simplifiée
+- Processus de commande streamliné
+- Mise à jour automatique des stocks après achat
 
+### **Liste de Souhaits**
+Fonctionnalité permettant de sauvegarder, consulter et gérer ses produits favoris pour un achat ultérieur.
 
-## **Installation :**
-Assurez-vous d’avoir Node.js, npm, et MySQL installés sur votre système.
-**Clonez ce dépôt GitHub sur votre machine :**
+### **Géolocalisation d'Adresses**
+Système intégré de recherche et validation d'adresses de livraison sur le territoire français.
 
-git clone:  [https://github.com/prplecloud/ProjetJS](https://github.com/prplecloud/ProjetJS)
+## **Guide d'Installation**
 
-**Ouvrez WampServer et lancez phpMyAdmin :
-Mettez comme valeur pour entrer dans votre database :** 
+### **Prérequis Système**
+- Node.js (version recommandée : LTS)
+- npm (gestionnaire de paquets)
+- MySQL Server
+- WampServer ou équivalent
 
-- Utilisateur : root
+### **Procédure de Déploiement**
 
-- Mot de passe: 
+1. **Récupération du Code Source**
+  ```bash
+  git clone https://github.com/XERCORD/BoutiqueJS.git
+1. **Configuration Base de Données**
+  - Démarrer WampServer et accéder à phpMyAdmin
+  - Paramètres de connexion :
+    - **Utilisateur :** root
+    - **Mot de passe :** (laisser vide)
+    - **Serveur :** MySQL
 
-- Choix du serveur : Mysql
+2. **Initialisation de la Base**
+  - Importer les fichiers SQL situés dans `frontend/assets/`
+  - Commencer par exécuter `database.sql`
 
-**Ouvrez le projet dans votre IDE : 
-Copiez les fichiers .sql se trouvant dans frontend/assets dans votre base de donnée en commencant par database.sql
-Une fois celà fait, dirigez vous dans le dossier backend et tapez npm start dans le cmd.** 
-
-cd ./backend/ 
-npm start
-
-A partir de là, vous pouvez ouvrir les fichiez html localement depuis vos fichiers ou bien avec l'extension LiveServer.
-Bonne navigation !
-
-## **Auteur :**
-
-https://github.com/EnzoCarbo
-https://github.com/prplecloud
+3. **Lancement du Serveur Backend**
+  ```bash
+  cd ./backend/
+  npm start
