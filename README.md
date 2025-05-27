@@ -1,105 +1,59 @@
-Blazing Fail - Plateforme E-commerce de Cartes à Collectionner
-Blazing Fail est votre boutique en ligne spécialisée dans l’univers des cartes à collectionner Pokémon et Yu-Gi-Oh!. Notre plateforme offre une expérience d’achat complète dédiée aux collectionneurs et passionnés de TCG (Trading Card Games).
+## **Projet E-commerce - Challenge JS**
+Le but de ce projet est de créer un site e-commerce complet en utilisant HTML, CSS, et JavaScript pour le frontend, et Express avec une base de données MySQL pour le backend. 
 
-📝 À Propos du Projet
-Cette application web e-commerce a été développée dans le cadre du Challenge JS du Bachelor 1 Informatique à Ynov.
-L’objectif était de concevoir une solution complète combinant les technologies frontend (HTML, CSS, JavaScript) et backend (Express.js, MySQL) pour créer une boutique en ligne fonctionnelle et moderne.
+## **Blazing Fail -  Boutique de Cartes et Boosters Pokémon & Yu-Gi-Oh**
+Bienvenue dans l'univers de Blazing Fail, votre nouvelle destination en ligne pour acheter des cartes et boosters Pokémon et Yu-Gi-Oh. 
+Notre site e-commerce propose une large sélection de produits pour les passionnés de jeux de cartes à collectionner. 
 
-✨ Caractéristiques Principales
-🗂️ Catalogue Enrichi
-Plus de 50 références soigneusement sélectionnées
+Le but de ce projet est de créer un site e-commerce complet pour Blazing Fail en utilisant HTML, CSS, et JavaScript pour le frontend, et Express avec une base de données MySQL pour le backend. 
+Ce projet mettra en pratique les compétences acquises dans le module Challenge JS à Ynov Informatique, Bachelor 1.
 
-Informations détaillées : nom, description, prix, galerie d’images, langue, état, édition, licence
+## **Fonctionnalités :**
+**Catalogue de Produits :** Plus de 50 articles disponibles avec des détails complets tel que le nom, la description, le prix, des images, et des caractéristiques spécifiques à l'article ! 
+(langue, état, édition et licence)
 
-🎨 Interface Utilisateur Interactive
-Présentation visuelle claire : nom, prix, aperçu photo
+**Affichage et Interaction :** Affiche une liste de produits avec le nom, le prix et une image. Au survol, la seconde image du produit apparaît. Les produits en promotion sont distingués.
 
-Animation au survol pour afficher une image secondaire
+**Filtrage et Tri :** Permet aux utilisateurs de filtrer le catalogue par différentes caractéristiques et de trier les produits par prix croissant ou décroissant.
 
-Mise en évidence des articles en promotion
+**Détails du Produit :** Affichage des détails d’un produit avec une description tronquée à 150 caractères et un bouton pour afficher la description complète. Inclue toutes les caractéristiques du produit et un carrousel d'images.
 
-Navigation intuitive et responsive
+**Gestion du Panier :** Vous pouvez ajouter des produits ou des quantités de produits au panier, modifier ou supprimer des articles du panier, et passer des commandes. Cela met à jour les quantités en stock après chaque achat.
 
-🔍 Système de Recherche Avancé
-Filtres multicritères (langue, état, licence, etc.)
+**Favoris :** Permettez aux utilisateurs d’ajouter des produits à leurs favoris, de les consulter et de les supprimer.
 
-Tri par prix (ascendant/descendant)
+**Adresse de Livraison :** Il vous est possible de trouver votre adresse en France.
+ 
 
-Navigation par catégories
 
-📄 Pages Produit Détaillées
-Description tronquée à 150 caractères avec bouton « Voir plus »
+## **Installation :**
+Assurez-vous d’avoir Node.js, npm, et MySQL installés sur votre système.
+**Clonez ce dépôt GitHub sur votre machine :**
 
-Carrousel d’images haute définition
+git clone:  [https://github.com/prplecloud/ProjetJS](https://github.com/prplecloud/ProjetJS)
 
-Spécifications techniques complètes
+**Ouvrez WampServer et lancez phpMyAdmin :
+Mettez comme valeur pour entrer dans votre database :** 
 
-🛒 Panier d’Achat Intelligent
-Ajout/modification de quantités en temps réel
+- Utilisateur : root
 
-Suppression d’articles simplifiée
+- Mot de passe: 
 
-Processus de commande optimisé
+- Choix du serveur : Mysql
 
-Mise à jour automatique des stocks
+**Ouvrez le projet dans votre IDE : 
+Copiez les fichiers .sql se trouvant dans frontend/assets dans votre base de donnée en commencant par database.sql
+Une fois celà fait, dirigez vous dans le dossier backend et tapez npm start dans le cmd.** 
 
-💖 Liste de Souhaits
-Sauvegarde et gestion des produits favoris
-
-📍 Géolocalisation d’Adresses
-Recherche et validation d’adresses de livraison (France uniquement)
-
-⚙️ Guide d’Installation
-Prérequis
-Node.js (version recommandée : LTS)
-
-npm (gestionnaire de paquets)
-
-MySQL Server
-
-WampServer ou équivalent
-
-Procédure de Déploiement
-1. Récupération du Code Source
-bash
-Copier
-Modifier
-git clone https://github.com/XERCORD/BoutiqueJS.git
-2. Configuration Base de Données
-Démarrer WampServer
-
-Accéder à phpMyAdmin
-
-Paramètres de connexion :
-
-Utilisateur : root
-
-Mot de passe : (laisser vide)
-
-Serveur : MySQL
-
-3. Initialisation de la Base
-Importer les fichiers .sql situés dans frontend/assets/
-
-Commencer par exécuter database.sql
-
-4. Lancement du Serveur Backend
-bash
-Copier
-Modifier
-cd ./backend/
+cd ./backend/ 
 npm start
-5. Accès à l’Application
-Ouvrir les fichiers HTML directement dans le navigateur
 
-Ou utiliser l’extension Live Server pour un serveur local
+A partir de là, vous pouvez ouvrir les fichiez html localement depuis vos fichiers ou bien avec l'extension LiveServer.
+Bonne navigation !
 
-✅ Votre plateforme Blazing Fail est maintenant opérationnelle !
-👨‍💻 Équipe de Développement
-Développeur Principal : XERCORD
+## **Auteur :**
 
-Développeur Principal : Kottah02
-
-Projet réalisé dans le cadre du Bachelor Informatique – Ynov Campus
+https://github.com/EnzoCarbo
+https://github.com/prplecloud
 
 Souhaitez-vous aussi que j'ajoute un sommaire cliquable ou des badges (par ex. Node version, licence, etc.) ?
