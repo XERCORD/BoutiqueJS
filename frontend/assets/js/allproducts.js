@@ -64,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function sortProducts(products, direction) {
         if (direction === 'asc') {
-            return products.slice().sort((a, b) => a.price - b.price);
+            return products.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         } else if (direction === 'desc') {
-            return products.slice().sort((a, b) => b.price - a.price);
+            return products.slice().sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         }
         return products;
     }
@@ -162,17 +162,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const productElement = document.createElement('div');
             productElement.classList.add('article');
             productElement.setAttribute('data-product-id', product.products_id);
-            let price = product.price;
-            let priceWithReduction = product.price;
+            
+            // Convertir les prix en nombres pour éviter les erreurs
+            let price = parseFloat(product.price) || 0;
+            let priceWithReduction = price;
             let priceClass = 'prix-initial';
-            if (product.réduction !== 0) {
-                priceWithReduction = product.price - (product.price * (product.réduction / 100));
+            let reduction = parseFloat(product.réduction) || 0;
+            
+            if (reduction !== 0) {
+                priceWithReduction = price - (price * (reduction / 100));
                 priceClass = 'prix-initial-promo';
             }
 
             productElement.innerHTML = `
             <div class="coeur_ctn">
-               <img class="coeur empty-heart" src="../assets/img/heart/empty-heart.png" alt="coeur vide" data-id="${product.products_id}">
+               <img class="coeur empty-heart" src="/assets/img/heart/empty-heart.png" alt="coeur vide" data-id="${product.products_id}">
             </div>
                 <p class="licence">${product.licence_name}</p>
                 <p class="cat">${product.category_name}</p>
@@ -182,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2 class="product_name">${product.name}</h2>
                 <p class="prix">
                     <span class="${priceClass}">${price.toFixed(2)}<span>€</span></span>
-                    ${product.réduction !== 0 ? `<span class="prix-réduit">${priceWithReduction.toFixed(2)}<span>€</span></span>` : ''}
+                    ${reduction !== 0 ? `<span class="prix-réduit">${priceWithReduction.toFixed(2)}<span>€</span></span>` : ''}
                 </p>
             `;
 
@@ -243,10 +247,10 @@ function heartImgUpdate() {
             const productId = this.closest('.article').getAttribute('data-product-id');
 
             if (isHeartEmpty) {
-                this.src = '../assets/img/heart/filled-heart.png';
+                this.src = '/assets/img/heart/filled-heart.png';
                 storeInLocalStorage(productId);
             } else {
-                this.src = '../assets/img/heart/empty-heart.png';
+                this.src = '/assets/img/heart/empty-heart.png';
                 removeFromLocalStorage(productId);
             }
         });
@@ -272,13 +276,12 @@ function updateHeart() {
     document.querySelectorAll('.empty-heart').forEach(emptyHeart => {
         const productId = emptyHeart.closest('.article').getAttribute('data-product-id');
         if (favorites.includes(productId)) {
-            emptyHeart.src = '../assets/img/heart/filled-heart.png';
+            emptyHeart.src = '/assets/img/heart/filled-heart.png';
         }
     });
 }
 
 function switchImage(yes2, yes) {
-
     const articleImg = yes.querySelector('.article_img');
     const initialSrc = yes2.image_url;
 

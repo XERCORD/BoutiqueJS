@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-
     function incrementQuantity() {
         var currentValue = parseInt(quantityInput.value);
         var stock = parseInt(document.getElementById('product_stock').textContent.split(': ')[1]);
@@ -32,8 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
             quantityInput.value = currentValue + 1;
         }
     }
-
-
 
     mainImage.addEventListener('click', function() {
         var fullscreenImage = document.createElement('div');
@@ -70,8 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return subImgWrapper;
     }
 
-    
-
     const params = new URLSearchParams(window.location.search);
     const productId = params.get('id');
     const productUrl = `http://localhost:3000/api/products/${productId}`;
@@ -105,23 +100,24 @@ document.addEventListener('DOMContentLoaded', function() {
             addButton.textContent = 'Rupture de stock';
         }
 
- 
-        let price = product.price;
-        let priceWithReduction = product.price;
+        // Conversion sécurisée des prix en nombres
+        let price = parseFloat(product.price) || 0;
+        let priceWithReduction = price;
+        let reduction = parseFloat(product.réduction) || 0;
         let priceClass = 'prix-initial'; 
-        if (product.réduction !== 0) {
-            priceWithReduction = product.price - (product.price * (product.réduction / 100));
+        
+        if (reduction !== 0) {
+            priceWithReduction = price - (price * (reduction / 100));
             priceClass = 'prix-initial-promo'; 
         }
     
         document.getElementById('product_price').innerHTML = `
-        Prix:  ${product.réduction !== 0 ? `<span class="prix-réduit">${priceWithReduction.toFixed(2)} €</span>` : ''}
+        Prix:  ${reduction !== 0 ? `<span class="prix-réduit">${priceWithReduction.toFixed(2)} €</span>` : ''}
             <span class="${priceClass}">${price.toFixed(2)} €</span>
             
         `;
         document.getElementById('img_article').src = product.image_url;
 
-    
         const subImagesContainer = document.querySelector('.sub_img_ctn');
         subImagesContainer.innerHTML = '';
     
@@ -171,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 subImages[currentIndex].parentElement.classList.add('active');
             }
             mainImage.src = subImages[currentIndex].src;
-            
         }
 
         if (mainImage && subImages) {
@@ -252,46 +247,48 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Erreur lors de la récupération des détails du produit :", error);
         });
 
-        function addToCart(product) {
-            let price = product.price;
-            let priceWithReduction = product.price;
-            let priceClass = 'prix-initial'; 
-            if (product.réduction !== 0) {
-                priceWithReduction = product.price - (product.price * (product.réduction / 100));
-                priceClass = 'prix-initial-promo'; 
-            }
-            const quantity = parseInt(quantityInput.value);
-            let cart = JSON.parse(localStorage.getItem('panier')) || [];
-            
-            const existingProductIndex = cart.findIndex(item => item.id === productId);
+    function addToCart(product) {
+        // Conversion sécurisée des prix
+        let price = parseFloat(product.price) || 0;
+        let priceWithReduction = price;
+        let reduction = parseFloat(product.réduction) || 0;
         
-            if (existingProductIndex !== -1) {
-                const totalQuantity = cart[existingProductIndex].quantity + quantity;
-                if (totalQuantity <= product.stock) {
-                    cart[existingProductIndex].quantity = totalQuantity;
-                } else {
-                    cart[existingProductIndex].quantity = product.stock;
-                    alert(`Vous ne pouvez pas ajouter plus de ${product.stock} articles de ${product.name}.`);
-                }
-            } else {
-                if (quantity <= product.stock) {
-                    cart.push({
-                        id: productId,
-                        name: product.name,
-                        price: product.price,
-                        réduction: priceWithReduction,
-                        image: product.image_url,
-                        stock: product.stock,
-                        quantity: quantity
-                    });
-                } else {
-                    alert(`Vous ne pouvez pas ajouter plus de ${product.stock} articles de "${product.name}".`);
-                }
-            }
-        
-            localStorage.setItem('panier', JSON.stringify(cart));
-            updateCartBubble();
+        if (reduction !== 0) {
+            priceWithReduction = price - (price * (reduction / 100));
         }
+        
+        const quantity = parseInt(quantityInput.value);
+        let cart = JSON.parse(localStorage.getItem('panier')) || [];
+        
+        const existingProductIndex = cart.findIndex(item => item.id === productId);
+    
+        if (existingProductIndex !== -1) {
+            const totalQuantity = cart[existingProductIndex].quantity + quantity;
+            if (totalQuantity <= product.stock) {
+                cart[existingProductIndex].quantity = totalQuantity;
+            } else {
+                cart[existingProductIndex].quantity = product.stock;
+                alert(`Vous ne pouvez pas ajouter plus de ${product.stock} articles de ${product.name}.`);
+            }
+        } else {
+            if (quantity <= product.stock) {
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    price: price,  // Prix converti
+                    réduction: priceWithReduction,  // Prix avec réduction converti
+                    image: product.image_url,
+                    stock: product.stock,
+                    quantity: quantity
+                });
+            } else {
+                alert(`Vous ne pouvez pas ajouter plus de ${product.stock} articles de "${product.name}".`);
+            }
+        }
+    
+        localStorage.setItem('panier', JSON.stringify(cart));
+        updateCartBubble();
+    }
 });
 
 document.querySelector('.item_button').addEventListener('click', function() {
@@ -300,4 +297,3 @@ document.querySelector('.item_button').addEventListener('click', function() {
         document.getElementById('addedMessage').style.display = 'none';
     }, 2000); 
 });
-
