@@ -1,105 +1,89 @@
-Blazing Fail - Plateforme E-commerce de Cartes à Collectionner
-Blazing Fail est votre boutique en ligne spécialisée dans l’univers des cartes à collectionner Pokémon et Yu-Gi-Oh!. Notre plateforme offre une expérience d’achat complète dédiée aux collectionneurs et passionnés de TCG (Trading Card Games).
+# **Blazing Fail - Plateforme E-commerce de Cartes à Collectionner**
 
-📝 À Propos du Projet
-Cette application web e-commerce a été développée dans le cadre du Challenge JS du Bachelor 1 Informatique à Ynov.
-L’objectif était de concevoir une solution complète combinant les technologies frontend (HTML, CSS, JavaScript) et backend (Express.js, MySQL) pour créer une boutique en ligne fonctionnelle et moderne.
+Découvrez Blazing Fail, votre boutique en ligne spécialisée dans l'univers des cartes à collectionner Pokémon et Yu-Gi-Oh ! Notre plateforme offre une expérience d'achat complète dédiée aux collectionneurs et passionnés de TCG (Trading Card Games).
 
-✨ Caractéristiques Principales
-🗂️ Catalogue Enrichi
-Plus de 50 références soigneusement sélectionnées
+## **À Propos du Projet**
 
-Informations détaillées : nom, description, prix, galerie d’images, langue, état, édition, licence
+Cette application web e-commerce a été développée dans le cadre du module Challenge JS du Bachelor 1 Informatique à Ynov. L'objectif était de concevoir une solution complète combinant les technologies frontend (HTML, CSS, JavaScript) et backend (Express.js, MySQL) pour créer une boutique en ligne fonctionnelle et moderne.
 
-🎨 Interface Utilisateur Interactive
-Présentation visuelle claire : nom, prix, aperçu photo
+## **Caractéristiques Principales**
 
-Animation au survol pour afficher une image secondaire
+### **Catalogue Enrichi**
+Notre inventaire comprend plus de 50 références soigneusement sélectionnées. Chaque produit dispose d'informations détaillées incluant nom, description complète, tarification, galerie d'images et spécifications techniques (langue, condition, édition, licence).
 
-Mise en évidence des articles en promotion
+### **Interface Utilisateur Interactive**
+- Présentation visuelle des articles avec nom, prix et aperçu photo
+- Animation au survol révélant une image secondaire
+- Mise en évidence spéciale des articles en promotion
+- Navigation intuitive et responsive
 
-Navigation intuitive et responsive
+### **Système de Recherche Avancé**
+Les utilisateurs peuvent affiner leur recherche grâce à :
+- Filtres multicritères selon les caractéristiques produits
+- Tri personnalisable par ordre de prix (ascendant/descendant)
+- Navigation par catégories
 
-🔍 Système de Recherche Avancé
-Filtres multicritères (langue, état, licence, etc.)
+### **Pages Produit Détaillées**
+- Descriptions complètes avec système de troncature à 150 caractères
+- Bouton d'expansion pour affichage intégral
+- Carrousel d'images haute définition
+- Spécifications techniques complètes
 
-Tri par prix (ascendant/descendant)
+### **Panier d'Achat Intelligent**
+- Ajout/modification des quantités en temps réel
+- Suppression d'articles simplifiée
+- Processus de commande streamliné
+- Mise à jour automatique des stocks après achat
 
-Navigation par catégories
+### **Liste de Souhaits**
+Fonctionnalité permettant de sauvegarder, consulter et gérer ses produits favoris pour un achat ultérieur.
 
-📄 Pages Produit Détaillées
-Description tronquée à 150 caractères avec bouton « Voir plus »
+### **Géolocalisation d'Adresses**
+Système intégré de recherche et validation d'adresses de livraison sur le territoire français.
 
-Carrousel d’images haute définition
+## **Guide d'Installation**
 
-Spécifications techniques complètes
+### **Prérequis Système**
+- Node.js (version recommandée : LTS)
+- npm (gestionnaire de paquets)
+- MySQL Server
+- WampServer ou équivalent
 
-🛒 Panier d’Achat Intelligent
-Ajout/modification de quantités en temps réel
+### **Procédure de Déploiement**
 
-Suppression d’articles simplifiée
+1. **Récupération du Code Source**
+   ```bash
+   git clone https://github.com/XERCORD/BoutiqueJS.git
+   ```
 
-Processus de commande optimisé
+2. **Configuration Base de Données**
+   - Démarrer WampServer et accéder à phpMyAdmin
+   - Paramètres de connexion :
+     - **Utilisateur :** root
+     - **Mot de passe :** (laisser vide)
+     - **Serveur :** MySQL
 
-Mise à jour automatique des stocks
+3. **Initialisation de la Base**
+   - Importer les fichiers SQL situés dans `frontend/assets/`
+   - Commencer par exécuter `database.sql`
 
-💖 Liste de Souhaits
-Sauvegarde et gestion des produits favoris
+4. **Lancement du Serveur Backend**
+   ```bash
+   cd ./backend/
+   npm start
+   ```
 
-📍 Géolocalisation d’Adresses
-Recherche et validation d’adresses de livraison (France uniquement)
+5. **Accès à l'Application**
+   - Ouvrir les fichiers HTML directement depuis le navigateur
+   - Ou utiliser l'extension Live Server pour un serveur de développement
 
-⚙️ Guide d’Installation
-Prérequis
-Node.js (version recommandée : LTS)
+Votre plateforme Blazing Fail est maintenant opérationnelle !
 
-npm (gestionnaire de paquets)
+## **Équipe de Développement**
 
-MySQL Server
+- **Développeur Principal :** [XERCORD](https://github.com/XERCORD)
+- **Développeur Principal :** [Kottah02](https://github.com/Kottah02)
 
-WampServer ou équivalent
+---
 
-Procédure de Déploiement
-1. Récupération du Code Source
-bash
-Copier
-Modifier
-git clone https://github.com/XERCORD/BoutiqueJS.git
-2. Configuration Base de Données
-Démarrer WampServer
-
-Accéder à phpMyAdmin
-
-Paramètres de connexion :
-
-Utilisateur : root
-
-Mot de passe : (laisser vide)
-
-Serveur : MySQL
-
-3. Initialisation de la Base
-Importer les fichiers .sql situés dans frontend/assets/
-
-Commencer par exécuter database.sql
-
-4. Lancement du Serveur Backend
-bash
-Copier
-Modifier
-cd ./backend/
-npm start
-5. Accès à l’Application
-Ouvrir les fichiers HTML directement dans le navigateur
-
-Ou utiliser l’extension Live Server pour un serveur local
-
-✅ Votre plateforme Blazing Fail est maintenant opérationnelle !
-👨‍💻 Équipe de Développement
-Développeur Principal : XERCORD
-
-Développeur Principal : Kottah02
-
-Projet réalisé dans le cadre du Bachelor Informatique – Ynov Campus
-
-Souhaitez-vous aussi que j'ajoute un sommaire cliquable ou des badges (par ex. Node version, licence, etc.) ?
+*Projet réalisé dans le cadre de la formation Bachelor 1 Informatique - Ynov Campus*
