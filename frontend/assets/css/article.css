@@ -1,0 +1,416 @@
+@font-face {
+    font-family: 'Rubik_Light';
+    src: url(../font/Rubik-Light.ttf);
+}
+
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border: solid 1px white;
+    border-radius: 10px;
+    width: 83%;
+    box-shadow: 0 0 5px #808080;
+    background-color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.choice_button {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cat_img {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.cat_img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+
+}
+
+.main_ctn {
+    border: solid 1px white;
+    box-shadow: 0 0 5px #808080;
+    background-color: white;
+    width: 79%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+    padding: 30px;
+    gap: 10px;
+    flex-direction: column;}
+
+.article_desc {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 50%;
+}
+
+.prix {
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+.article_img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#img_article {
+    width: 95%;
+    max-height: 600px;
+}
+
+.item_button {
+    background-color: #f15a25;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Rubik_Black';
+    padding: 10px 20px;
+    width: 50%;
+    margin-right: 20px;
+}
+
+.item_button:active {
+    background-color: #f9b142;
+}
+
+.button {
+    display: flex;
+ 
+    margin: 20px 0;
+
+}
+
+#addedMessage {
+    color: green;
+    font-family: 'Rubik_medium';
+    font-size: 1.5em;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#decrease {
+    color: #f9b142;
+    border: 3px solid #f9b142;
+    border-radius: 50%;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#decrease:hover {
+    background-color: #f9b142;
+    color: white;
+}
+
+#increase {
+    color: #f9b142;
+    border: 3px solid #f9b142;
+    border-radius: 50%;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#increase:hover {
+    background-color: #f9b142;
+    color: white;
+}
+
+.quantity {
+    display: flex;
+    gap: 10px;
+}
+
+#quantity {
+    width: 47px;
+    text-align: center;
+    font-size: 1.5em;
+    border: 3px solid #f9b142;
+    border-radius: 50%;
+    color: #f9b142;
+    ;
+    font-family: 'Rubik_Black';
+}
+
+.sub_img {
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+.images_ctn {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+
+.description {
+    font-family: 'Rubik_Light';
+    display: flex;
+    flex-direction: column;
+}
+
+#left {
+    position: relative;
+    font-size: 2em;
+    cursor: pointer;
+    user-select: none;
+    left: 30px;
+    color: #f15a25;
+
+}
+
+#right {
+    position: relative;
+    font-size: 2em;
+    cursor: pointer;
+    user-select: none;
+    right: 30px;
+    color: #f15a25;
+}
+
+#left:hover {
+    transform: scale(1.2);
+}
+
+#right:hover {
+    transform: scale(1.2);
+}
+
+
+.blur-background {
+    filter: blur(5px);
+}
+
+.main_ctn.active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.main_ctn.active .article_img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main_ctn.active #left,
+.main_ctn.active #right {
+    display: none;
+}
+
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+    font-size: 3em;
+}
+
+.caract>* {
+    display: flex;
+    font-size: 0.75em;
+    font-family: 'Rubik_Light';
+}
+
+.txt {
+    width: 70%;
+}
+
+.sub_img_ctn {
+    display: flex;
+    gap: 10px;   
+    margin: 20px 0;
+    width: 35%;
+    flex-direction: column;
+}
+
+.name_desc {
+    padding: 10px;
+    font-family: 'Rubik_Light';
+}
+
+
+
+.color1 {
+    background-color: #FFE314;
+    padding: 10px;
+
+}
+
+.color2 {
+    background-color: #f9b142;
+    padding: 10px;
+}
+
+.prix-initial {
+    text-decoration: none;
+    color: #4D0000;
+    font-weight: normal;
+}
+
+
+.prix-initial-promo {
+    text-decoration: line-through;
+    color: #999;
+    font-weight: normal;
+    font-size: 0.5em; 
+}
+
+.img_desc {
+    display: flex;
+    gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+
+    #product_name {
+        font-size: 1em;
+    }
+
+    #product_description {
+        font-size: 0.75em;
+    }
+
+    #product_price {
+        font-size: 2em;
+    }
+
+    .qtn_txt {
+        font-size: 0.75em;
+    }
+
+    .main_ctn {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+    }
+
+    .article_desc {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .caract>* {
+        display: flex;
+        font-size: 0.75em;
+        font-family: 'Rubik_Light';
+        justify-content: space-between;
+    }
+
+    #data2 {
+        text-align: end;
+    }
+
+    .qtn_txt {
+        display: flex;
+        align-items: center;
+    }
+    .images_ctn {
+        width: 100%;
+    }
+}
+
+
+.sub_img_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.sub_img_wrapper.active  {
+    border: #f15a25 solid 2px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.sub_img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.arrow-button {
+    position: relative;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.arrow-button.left {
+    left: 10px;
+}
+
+.arrow-button.right {
+    right: 10px;
+}

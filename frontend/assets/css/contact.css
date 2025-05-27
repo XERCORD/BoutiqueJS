@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Rubik_Light';
+    src: url(../font/Rubik-Light.ttf);
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contact-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-form textarea {
+    height: 100px;
+    resize: none;
+}
+
+.contact-form button {
+    background-color: #ff6f00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: #e65c00;
+}
+
+.contact-form .consentement {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact-form .consentement a {
+    color: #ff6f00;
+    text-decoration: none;
+}
+
+.contact-form .consentement a:hover {
+    text-decoration: underline;
+}
+
+.form_ctn {
+    border: solid 1px white;
+    box-shadow: 0 0 5px #808080;
+    background-color: white;
+    width: 79%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+    padding: 30px;
+    gap: 10px;
+}
+
+.main_ctn {
+    display: flex;
+    justify-content: center;
+}

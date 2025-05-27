@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartes à collectioner - Blazing Fail</title>
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/categorie.css">
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html">
+            <img id="logo" src="../assets/img/LogoSite.png" alt="">
+        </a>
+        <div class="menu-btn">
+            <div class="menu-btn-burger"></div>
+        </div>
+        <ul class="ul_header">
+            <li class="li_header"><a class="nav" href="allproducts.html">Tout nos produits</a></li>
+            <li class="li_header"><a class="nav" href="promotions.html">Promotions</a></li>
+            <li class="li_header"><a class="nav" href="favorite.html">Vos favoris</a></li>
+        </ul>
+        <form action="recherche.html" method="GET" class="search">
+            <input type="text" id="recherche" name="name" placeholder="Rechercher" required class="search_bar">
+        </form>
+        <a class="a_header" href="panier.html">
+            <div id="cartBubble" class="cart-bubble"></div>
+
+            <svg id="svg_bar" aria-hidden="true" focusable="false" role="presentation" class="icon icon-bag-minimal"
+                viewBox="0 0 64 64">
+                <path stroke="null" id="svg_4" fill-opacity="null" stroke-opacity="null" fill="null"
+                    d="M11.375 17.863h41.25v36.75h-41.25z"></path>
+                <path stroke="null" id="svg_2" d="M22.25 18c0-7.105 4.35-9 9.75-9s9.75 1.895 9.75 9"></path>
+            </svg>
+
+        </a>
+    </header>
+    <nav class="menu">
+        <div class="menu_all_ctn">
+        <ul class="ul_menu_bgr">
+            <li><a class="nav" href="allproducts.html">Tout nos produits</a></li>
+            <li><a class="nav" href="promotions.html">Promotions</a></li>
+            <li><a class="nav" href="favorite.html">Favoris</a></li>
+            <li><a class="nav" href="panier.html">Panier</a></li>
+        </ul>
+    </div>
+    </nav>
+    <main>
+        <div class="choice">
+            <div class="choice_button">
+                <a href="licence.html?licence=1" class="category-link" data-licence="Pokemon"><img class="cat_img" src="../assets/img/LogoPkm.png" alt=""></a>
+                <a href="licence.html?licence=2" class="category-link" data-licence="Yu-Gi-Oh"><img class="cat_img" src="../assets/img/LogoYGO.png" alt=""></a>
+            </div>
+        </div>
+        </div>
+        <div class="main_ctn">
+            <div class="articles"></div>
+        </div>
+    </main>
+    <footer>
+        <div class="contact">
+            <h1>Nous Contacter</h1>
+            <p>Blazing Fail</p>
+            <p>3 rue des Potiers</p>
+            <p>13290 Aix-en-Provence</p>
+            <p>04 68 75 81 52</p>
+            <p>France Metropolitaine</p>
+        </div>
+        <img class="img_footer" src="../assets/img/LogoSite.png" alt="">
+        <div class="info">
+            <h1>Informations</h1>
+            <p><a class="nav" href="about.html">Qui sommes-nous</a></p>
+            <p><a class="nav" href="">CGV</a></p>
+            <p><a class="nav" href="contact.html">Contactez-nous</a></p>
+            <p><a class="nav" href="">Plan du site</a></p>
+        </div>
+    </footer>
+    <script src="../assets/js/categorie.js"></script>
+    <script src="../assets/js/recherche.js"></script>
+    <script src="../assets/js/header.js"></script>
+
+
+</body>
+
+</html>

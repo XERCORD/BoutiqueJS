@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'Rubik_Light';
+    src: url(../font/Rubik-Light.ttf);
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border: solid 1px white;
+    border-radius: 10px;
+    width: 94%;
+    box-shadow: 0 0 5px #808080;
+    background-color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.choice_button {
+    width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cat_img {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.cat_img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    
+}
+
+.main_ctn {
+    border: solid 1px white;
+    box-shadow: 0 0 5px #808080;
+    background-color: white;
+    width: 89%;
+    border-radius: 10px;
+    display: flex;
+    margin: 50px 0;
+    padding: 30px;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container_all {
+    display: flex;
+    width: 100%;
+justify-content: space-between;
+align-items: center;
+}
+
+.article_all {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-right: 50px
+}
+
+#article_img {
+    width: 70%;
+    transition: 0.3s;}
+
+#article_img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.img_article {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.article_line {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.prix_all {
+    width: 30%;
+    border: 1px solid #4D0000 ;
+    background-color: #4D0000;
+    border-radius: 20px;
+    color : white;
+    font-family: 'Rubik_Light';
+    text-align: center;
+    padding: 10px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.titre {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    color: #4D0000;
+}
+
+
+.prix_total_ctn {
+    display: flex;
+    justify-content: space-evenly;  
+}
+
+.prix_livraison_ctn {
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom-style: double;
+}
+
+
+.prix_ttc_ctn {
+    display: flex;
+    justify-content: space-evenly;  
+    margin: 10px 0;
+}
+
+#quantity {
+    border: 2px solid #f15a25;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    padding: 10px;
+
+}
+
+.commander_btn {
+    background-color: #f15a25;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Rubik_Black';
+    padding: 5px 20px;
+}
+
+.svg1 {
+    width: 100px;
+    height: 20px;
+}
+
+.svg2 {
+    width: 230px;
+    
+}
+
+.name_article {
+    font-family: 'Rubik_Light';
+    font-size: 1em;
+}
+
+.prix_desc {
+    color : #F9B142;
+}
+
+.prix {
+    width: 10%;
+    text-align: center;
+}
+
+.name_desc {
+    width: 50%;
+}
+
+.formulaire_qty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+}
+
+.trash {
+    width: 5%;
+}
+
+@media screen and (max-width: 600px) {
+    .container_all {
+        flex-direction: column;
+    }
+    .main_ctn {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .article_all {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .name_article {
+        font-size: 0.75em;
+    }
+
+    .name_desc {
+        font-size: 0.75em;
+        width: 30%;
+    }
+
+    .prix_desc {
+        font-size: 0.75em;
+    }
+
+    p {
+        font-size: 0.75em;
+    }
+
+    .article_line {
+        width: 100%;
+        padding: 0;
+    }
+
+    .prix_all {
+        width: 90%;
+    }
+
+    #quantity {
+        font-size: 0.35em;
+    }
+
+    .commander_btn:active {
+        background-color: #F9B142;
+    }
+}
