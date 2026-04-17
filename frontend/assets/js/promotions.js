@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000/api/products';
+const url = '/api/products';
 
 function getProducts() {
     fetch(url)

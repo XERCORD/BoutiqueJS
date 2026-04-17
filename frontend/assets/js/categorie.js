@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryId = urlParams.get('categories');
 
-    fetch(`http://localhost:3000/api/products/categories/${categoryId}`)
+    fetch(`/api/products/categories/${categoryId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const params = new URLSearchParams(window.location.search);
     const productId = params.get('id');
-    const productUrl = `http://localhost:3000/api/products/${productId}`;
+    const productUrl = `/api/products/${productId}`;
 
     function displayProductDetails(product) {
         document.getElementById('product_name').textContent = product.name;

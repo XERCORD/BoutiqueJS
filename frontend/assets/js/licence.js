@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const licenceId = urlParams.get('licence');
 
-    fetchProducts(`http://localhost:3000/api/products/licence/${licenceId}`)
+    fetchProducts(`/api/products/licence/${licenceId}`)
         .then(products => {
             displayProducts(products);
             updateHeart();

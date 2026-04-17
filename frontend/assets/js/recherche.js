@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (name) {
         const searchName = name.toLowerCase();
 
-        fetch(`http://localhost:3000/api/products/search/${searchName}`)
+        fetch(`/api/products/search/${encodeURIComponent(searchName)}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

@@ -14,7 +14,7 @@ function updateStock() {
         quantity: parseInt(product.quantity)
     }));
 
-    fetch('http://localhost:3000/api/update-stock', {
+    fetch('/api/update-stock', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

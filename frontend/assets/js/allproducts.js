@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
     const productsPerPage = 9;
     let allProductsData = [];
-    const url = 'http://localhost:3000/api/products';
+    const url = '/api/products';
 
     function getProducts() {
         fetch(url)

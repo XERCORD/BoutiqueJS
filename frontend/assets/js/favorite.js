@@ -15,7 +15,7 @@ function displayFavoriteProducts() {
     }
 
     favorites.forEach(productId => {
-        fetch(`http://localhost:3000/api/products/${productId}`)
+        fetch(`/api/products/${productId}`)
             .then(response => response.json())
             .then(product => {
                 const productElement = createProductElement(product);
