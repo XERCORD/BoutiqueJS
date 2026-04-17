@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const path = require('path');
-const port = 3000;
+const port = Number(process.env.PORT) || 3000;
 
 app.use(cors());
 const productsRoutes = require('./routes/products');
@@ -70,6 +70,6 @@ app.get('/confirmation.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/templates/confirmation.html'));
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server listening on port ${port}`);
 });
