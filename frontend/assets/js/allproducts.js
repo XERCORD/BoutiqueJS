@@ -206,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayPagination(filteredProducts) {
         const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
         const paginationContainer = document.querySelector('.pagination');
+        if (!paginationContainer) return;
 
         paginationContainer.innerHTML = '';
 
@@ -284,6 +285,7 @@ function updateHeart() {
 function switchImage(yes2, yes) {
     const articleImg = yes.querySelector('.article_img');
     const initialSrc = yes2.image_url;
+    let timeoutId;
 
     articleImg.addEventListener('mouseover', () => {
         timeoutId = setTimeout(() => {
@@ -292,6 +294,7 @@ function switchImage(yes2, yes) {
     });
 
     articleImg.addEventListener('mouseout', () => {
+        clearTimeout(timeoutId);
         articleImg.src = initialSrc;
     });
 }

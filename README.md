@@ -1,6 +1,6 @@
-# **Blazing Fail - Plateforme E-commerce de Cartes à Collectionner**
+# **Yblazing Fail - Plateforme E-commerce de Cartes à Collectionner**
 
-Découvrez Blazing Fail, votre boutique en ligne spécialisée dans l'univers des cartes à collectionner Pokémon et Yu-Gi-Oh ! Notre plateforme offre une expérience d'achat complète dédiée aux collectionneurs et passionnés de TCG (Trading Card Games).
+Découvrez Yblazing Fail, votre boutique en ligne spécialisée dans l'univers des cartes à collectionner Pokémon et Yu-Gi-Oh ! Notre plateforme offre une expérience d'achat complète dédiée aux collectionneurs et passionnés de TCG (Trading Card Games).
 
 ## **À Propos du Projet**
 
@@ -77,7 +77,7 @@ Système intégré de recherche et validation d'adresses de livraison sur le ter
    - Ouvrir les fichiers HTML directement depuis le navigateur
    - Ou utiliser l'extension Live Server pour un serveur de développement
 
-Votre plateforme Blazing Fail est maintenant opérationnelle !
+Votre plateforme Yblazing Fail est maintenant opérationnelle !
 
 ## **Équipe de Développement**
 

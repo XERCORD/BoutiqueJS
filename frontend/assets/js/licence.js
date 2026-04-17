@@ -33,7 +33,7 @@ function displayProducts(products) {
         productsList.appendChild(productElement);
     });
 
-    attachHeartListeners();
+    heartImgUpdate();
 }
 
 function createProductElement(product) {

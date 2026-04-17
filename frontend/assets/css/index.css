@@ -4,46 +4,86 @@
 }
 
 
-.choice {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    border: solid 1px white;
-    border-radius: 10px;
-    width: 82%;
-    box-shadow: 0 0 5px #808080;
-    background-color: white;
-}
-
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 15px;
-    background-image: url(../img/before_slider.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-
 }
 
-.choice_button {
-    width: 100%;
-  display: flex;
-  justify-content: space-around;
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 88%;
+    background: linear-gradient(135deg, #4D0000 0%, #8B0000 50%, #f15a25 100%);
+    border-radius: 16px;
+    padding: 50px 60px;
+    margin: 20px 0 10px 0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    gap: 40px;
 }
 
-.cat_img {
-    width: 100%;
-    transition: transform 0.5s;
+.hero_content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1;
 }
 
-.cat_img:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    
+.hero_title {
+    font-size: 2.8em;
+    color: white;
+    margin: 0;
+    line-height: 1.2;
+    font-family: 'Rubik_Light';
+}
+
+.hero_title span {
+    color: #F9B142;
+}
+
+.hero_subtitle {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.hero_btn {
+    display: inline-block;
+    background-color: #F9B142;
+    color: #4D0000;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1em;
+    text-decoration: none;
+    width: fit-content;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.hero_btn:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.hero_logos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.hero_logos img {
+    width: 180px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+    transition: transform 0.3s;
+}
+
+.hero_logos img:hover {
+    transform: scale(1.05);
 }
 
 .main_ctn {

@@ -160,7 +160,7 @@ input[type="checkbox"] {
     text-align: center;
 }
 
-select {
+.main_ctn select {
     background-color: rgb(125, 48, 17);
     color: #F9B142;
     border: solid 1px rgb(125, 48, 17);
