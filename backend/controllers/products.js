@@ -1,6 +1,5 @@
-const { query } = require('express');
 const pool = require('../config/database');
-const e = require('express');
+const { normalizeProductRow, normalizeProductRows } = require('../utils/imageUrls');
 
 exports.getProducts = (req, res) => {
     const query = `
@@ -15,7 +14,7 @@ exports.getProducts = (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      res.json(results);
+      res.json(normalizeProductRows(results));
     });
   };
 
@@ -45,7 +44,7 @@ exports.getProductById = (req, res) => {
     if (results.length === 0) {
       return res.status(404).json({ message: 'Product not found' });
     }
-    res.json(results[0]);
+    res.json(normalizeProductRow(results[0]));
   });
 };
 
@@ -65,7 +64,7 @@ exports.getProductsByCategories = (req, res) => {
       if (results.length === 0) {
         return res.status(404).json({ message: 'Product not found' });
       }
-      res.json(results);
+      res.json(normalizeProductRows(results));
     });
   }
 
@@ -78,7 +77,7 @@ exports.getProductsByCategories = (req, res) => {
       if (results.length === 0) {
         return res.status(404).json({ message: 'Product not found' });
       }
-      res.json(results);
+      res.json(normalizeProductRows(results));
     });
   }
 
@@ -91,7 +90,7 @@ exports.getProductsByCategories = (req, res) => {
       if (results.length === 0) {
         return res.status(404).json({ message: 'Product not found' });
       }
-      res.json(results);
+      res.json(normalizeProductRows(results));
     });
   }
 
@@ -110,7 +109,7 @@ exports.getProductsByCategories = (req, res) => {
       if (results.length === 0) {
         return res.status(404).json({ message: 'Product not found' });
       }
-      res.json(results);
+      res.json(normalizeProductRows(results));
     });
   }
 
@@ -123,7 +122,7 @@ exports.getProductsByCategories = (req, res) => {
       if (results.length === 0) {
         return res.status(404).json({ message: 'Product not found' });
       }
-      res.json(results);
+      res.json(normalizeProductRows(results));
     });
   }
 
@@ -132,7 +131,7 @@ exports.getBoosters = (req, res) => {
       if (error) {
         return res.status(500).json({ error: error.message });
       }
-      res.json(results);
+      res.json(normalizeProductRows(results));
     });
   };
 
@@ -166,7 +165,7 @@ exports.searchProductsByName = (req, res) => {
     if (error) {
       return res.status(500).json({ error: error.message });
     }
-    res.json(results);
+    res.json(normalizeProductRows(results));
   });
 };
 
@@ -175,7 +174,7 @@ exports.getProductsByPromo = (req, res) => {
     if (error) {
       return res.status(500).json({ error: error.message });
     }
-    res.json(results);
+    res.json(normalizeProductRows(results));
   });
 }
 
