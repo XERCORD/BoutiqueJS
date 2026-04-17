@@ -1,25 +1,51 @@
 const mysql = require('mysql2');
 
+function trimEnv(key) {
+  const v = process.env[key];
+  if (v == null) return '';
+  return String(v).trim();
+}
+
 function railwaySsl() {
   return process.env.RAILWAY_ENVIRONMENT
     ? { ssl: { rejectUnauthorized: false } }
     : {};
 }
 
+function isLocalhost(host) {
+  if (!host) return true;
+  const h = host.toLowerCase();
+  return h === 'localhost' || h === '127.0.0.1' || h === '::1';
+}
+
 function poolConfig() {
-  const host =
-    process.env.MYSQLHOST ||
-    process.env.MYSQL_HOST ||
-    process.env.MYSQL_ADDRESS;
+  const urlRaw =
+    trimEnv('MYSQL_URL') || trimEnv('DATABASE_URL');
+  if (urlRaw && /^mysql:\/\//i.test(urlRaw)) {
+    return urlRaw;
+  }
+
+  let host =
+    trimEnv('MYSQLHOST') ||
+    trimEnv('MYSQL_HOST') ||
+    trimEnv('MYSQL_ADDRESS');
   const user =
-    process.env.MYSQLUSER || process.env.MYSQL_USER || process.env.MYSQLUSERNAME;
+    trimEnv('MYSQLUSER') ||
+    trimEnv('MYSQL_USER') ||
+    trimEnv('MYSQLUSERNAME');
   const password =
-    process.env.MYSQLPASSWORD || process.env.MYSQL_PASSWORD || '';
+    trimEnv('MYSQLPASSWORD') || trimEnv('MYSQL_PASSWORD');
   const database =
-    process.env.MYSQLDATABASE || process.env.MYSQL_DATABASE || process.env.MYSQL_DB;
+    trimEnv('MYSQLDATABASE') ||
+    trimEnv('MYSQL_DATABASE') ||
+    trimEnv('MYSQL_DB');
   const port = Number(
-    process.env.MYSQLPORT || process.env.MYSQL_PORT || 3306
+    trimEnv('MYSQLPORT') || trimEnv('MYSQL_PORT') || '3306'
   );
+
+  if (process.env.RAILWAY_ENVIRONMENT && isLocalhost(host)) {
+    host = '';
+  }
 
   if (host) {
     return {
@@ -32,11 +58,6 @@ function poolConfig() {
     };
   }
 
-  const url = process.env.MYSQL_URL || process.env.DATABASE_URL;
-  if (url && /^mysql:\/\//i.test(String(url))) {
-    return url;
-  }
-
   return {
     host: 'localhost',
     user: 'root',
@@ -45,20 +66,32 @@ function poolConfig() {
   };
 }
 
+const resolvedConfig = poolConfig();
+if (typeof resolvedConfig === 'string') {
+  console.log('[database] MySQL via MYSQL_URL / URL de connexion');
+} else if (process.env.RAILWAY_ENVIRONMENT) {
+  console.log(
+    '[database] MySQL host:',
+    resolvedConfig.host,
+    resolvedConfig.host === 'localhost'
+      ? '⚠ encore localhost → les variables MYSQL* ne sont pas visibles par Node. Vérifie Variables + redéploiement.'
+      : '(OK)'
+  );
+}
+
 if (process.env.RAILWAY_ENVIRONMENT) {
-  const hasRailwayMysql =
-    process.env.MYSQLHOST ||
-    process.env.MYSQL_HOST ||
-    process.env.MYSQL_ADDRESS ||
-    (process.env.MYSQL_URL && /^mysql:/i.test(process.env.MYSQL_URL)) ||
-    (process.env.DATABASE_URL && /^mysql:/i.test(process.env.DATABASE_URL));
-  if (!hasRailwayMysql) {
+  const has =
+    trimEnv('MYSQLHOST') ||
+    trimEnv('MYSQL_HOST') ||
+    trimEnv('MYSQL_URL') ||
+    (trimEnv('DATABASE_URL') && /^mysql:/i.test(trimEnv('DATABASE_URL')));
+  if (!has) {
     console.error(
-      '[Boutique] MySQL non configuré sur Railway. Service Web → Variables → « New Variable » → « Variable Reference » → choisir la base MySQL et ajouter MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, MYSQLPORT (ou MYSQL_URL).'
+      '[Boutique] Aucune variable MySQL utile au runtime. Sur BoutiqueJS → Variables : ajoute par ex. MYSQL_URL = ${{ MySQL.MYSQL_URL }} puis Apply / Deploy.'
     );
   }
 }
 
-const pool = mysql.createPool(poolConfig());
+const pool = mysql.createPool(resolvedConfig);
 
 module.exports = pool;
