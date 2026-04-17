@@ -155,7 +155,7 @@ exports.searchProductsByName = (req, res) => {
            c.name as categories_name
     FROM products p
     LEFT JOIN edition e ON p.edition_id = e.edition_id
-    LEFT JOIN licence l ON p.licence_id = l.licence_id
+    LEFT JOIN Licence l ON p.licence_id = l.licence_id
     LEFT JOIN state s ON p.state_id = s.state_id
     LEFT JOIN langage g ON p.langage_id = g.langage_id
     LEFT JOIN categories c ON p.categories_id = c.categories_id

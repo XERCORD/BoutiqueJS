@@ -1,7 +1,7 @@
 INSERT INTO `state`(`name`) 
 VALUES ("Neuf"), ("Très bon état"), ("Bon état"), ("Etat correct");
 
-INSERT INTO `licence`(`name`) 
+INSERT INTO `Licence`(`name`) 
 VALUES ("Pokémon"), ("Yu-Gi-Oh!");
 
 INSERT INTO `langage`(`name`) 
