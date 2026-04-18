@@ -94,8 +94,8 @@ align-items: center;
 
 .prix_all {
     width: 30%;
-    border: 1px solid #4D0000 ;
-    background-color: #4D0000;
+    border: 1px solid var(--brand-blue-darker);
+    background-color: var(--brand-blue);
     border-radius: 20px;
     color : white;
     font-family: 'Rubik_Light';
@@ -112,7 +112,7 @@ h2 {
     width: 100%;
     display: flex;
     gap: 20px;
-    color: #4D0000;
+    color: var(--text-primary);
 }
 
 
@@ -135,7 +135,7 @@ h2 {
 }
 
 #quantity {
-    border: 2px solid #f15a25;
+    border: 2px solid var(--brand-red);
     border-radius: 10px;
     text-align: center;
     width: 50%;
@@ -144,7 +144,7 @@ h2 {
 }
 
 .commander_btn {
-    background-color: #f15a25;
+    background-color: var(--brand-red);
     border: none;
     color: white;
     border-radius: 10px;
@@ -169,7 +169,7 @@ h2 {
 }
 
 .prix_desc {
-    color : #F9B142;
+    color : var(--brand-yellow);
 }
 
 .prix {
@@ -237,6 +237,6 @@ h2 {
     }
 
     .commander_btn:active {
-        background-color: #F9B142;
+        background-color: var(--brand-yellow);
     }
 }

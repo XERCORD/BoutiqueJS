@@ -7,9 +7,10 @@
     width: 100%;
     max-width: 600px;
     padding: 20px;
-    background-color: white;
+    background-color: var(--surface);
+    border: 2px solid var(--brand-blue);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(60, 90, 166, 0.12);
     margin-top: 20px;
 }
 
@@ -22,7 +23,7 @@
 .contact-form label {
     margin-bottom: 8px;
     font-weight: bold;
-    color: #333;
+    color: var(--text-primary);
 }
 
 .contact-form input,
@@ -31,7 +32,7 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid rgba(60, 90, 166, 0.35);
     border-radius: 4px;
 }
 
@@ -41,9 +42,9 @@
 }
 
 .contact-form button {
-    background-color: #ff6f00;
+    background-color: var(--brand-red);
     color: white;
-    border: none;
+    border: 2px solid var(--brand-yellow);
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
@@ -51,7 +52,7 @@
 }
 
 .contact-form button:hover {
-    background-color: #e65c00;
+    background-color: var(--brand-blue);
 }
 
 .contact-form .consentement {
@@ -61,7 +62,7 @@
 }
 
 .contact-form .consentement a {
-    color: #ff6f00;
+    color: var(--brand-blue);
     text-decoration: none;
 }
 
@@ -70,9 +71,9 @@
 }
 
 .form_ctn {
-    border: solid 1px white;
-    box-shadow: 0 0 5px #808080;
-    background-color: white;
+    border: solid 2px var(--brand-blue);
+    box-shadow: 0 4px 16px rgba(60, 90, 166, 0.12);
+    background-color: var(--surface);
     width: 79%;
     border-radius: 10px;
     display: flex;

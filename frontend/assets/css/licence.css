@@ -50,7 +50,7 @@ main {
     justify-content: center;
     margin: 50px 0;
     padding: 10px;
-    color: #4D0000;
+    color: var(--text-primary);
 }
 
 .articles {
@@ -91,7 +91,7 @@ h3 {
     margin: 0;
     padding: 0;
     text-align: center;
-    color: #f9b142;
+    color: var(--brand-yellow);
 }
 
 .cat_item {
@@ -99,7 +99,7 @@ h3 {
 }
 
 .item_button {
-    background-color: #f15a25;
+    background-color: var(--brand-red);
     border: none;
     color: white;
     border-radius: 10px;
@@ -138,7 +138,7 @@ h4 {
 }
 
 .cat {
-    color: #F9B142;
+    color: var(--brand-yellow);
 }
 
 .product_name {

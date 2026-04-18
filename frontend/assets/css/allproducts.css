@@ -84,8 +84,8 @@ main {
 }
 
 .tri_main_ctn {
-    border: solid 1px #4D0000;
-    background-color: #4D0000;
+    border: solid 1px var(--brand-blue);
+    background-color: var(--brand-blue);
     width: 20%;
     border-radius: 20px;
     padding: 20px;
@@ -93,7 +93,7 @@ main {
 }
 
 .tri_titre {
-    color: #F9B142;
+    color: var(--brand-yellow);
 }
 
 .tri_button {
@@ -123,13 +123,13 @@ main {
 }
 
 .product_name {
-    color: #4D0000;
+    color: var(--text-primary);
     font-size: 1em;
 }
 
 input[type="checkbox"] {
-    background-color: #4D0000 !important;
-    color: #4D0000;
+    background-color: var(--brand-blue) !important;
+    color: var(--text-primary);
 }
 
 .checkbox {
@@ -161,9 +161,9 @@ input[type="checkbox"] {
 }
 
 .main_ctn select {
-    background-color: rgb(125, 48, 17);
-    color: #F9B142;
-    border: solid 1px rgb(125, 48, 17);
+    background-color: var(--brand-blue);
+    color: var(--brand-yellow);
+    border: solid 1px var(--brand-blue-darker);
     padding: 10px;
     border-radius: 10px;
     width: 75%;
@@ -195,7 +195,7 @@ input[type="checkbox"] {
 }
 
 .cat {
-    color: #F9B142;
+    color: var(--brand-yellow);
 }
 
 .product_name {
@@ -265,7 +265,7 @@ optgroup {
 
 .prix-initial {
     text-decoration: none;
-    color: #4D0000;
+    color: var(--text-primary);
     font-weight: normal;
 }
 
@@ -345,7 +345,7 @@ optgroup {
 }
 
 #clear_filter {
-    background-color: #f15a25;
+    background-color: var(--brand-red);
     border: none;
     color: white;
     border-radius: 10px;
@@ -355,5 +355,5 @@ optgroup {
 }
 
 #clear_filter:active {
-    background-color: #F9B142;
+    background-color: var(--brand-yellow);
 }

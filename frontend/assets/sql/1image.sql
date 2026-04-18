@@ -1,5 +1,6 @@
+-- APRÈS railway_init.sql + 4images.sql. Un seul gros INSERT : sélectionne TOUT le fichier puis Run (une fois).
 
-INSERT INTO `products`(`name`, `price`, `stock`, `image_url`, `description`, `réduction`, `edition_id`, `licence_id`, `state_id`, `langage_id`, `categories_id`) 
+INSERT INTO `railway`.`products`(`name`, `price`, `stock`, `image_url`, `description`, `réduction`, `edition_id`, `licence_id`, `state_id`, `langage_id`, `categories_id`) 
 VALUES 
 ("CARTE MEW VMAX POINT DE FUSION 114/264", 15.99, 1, "../assets/img/articles/Pokemon/carte/mew1.jpg", "Carte mew neuve" , 0, 15, 1, 2, 1, 2),
 

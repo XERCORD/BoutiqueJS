@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'Rubik_Black', Arial, sans-serif;
+    background-color: var(--page-bg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,17 +9,18 @@ body {
 }
 
 .container {
-    background-color: #ffffff;
+    background-color: var(--surface);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(60, 90, 166, 0.15);
+    border: 2px solid var(--brand-blue);
     width: 300px;
 }
 
 h2 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: #333;
+    color: var(--text-primary);
     text-align: center;
 }
 
@@ -52,7 +53,7 @@ input {
 #update-stock-button {
     width: 100%;
     padding: 10px 0;
-    background-color: #f15a25;
+    background-color: var(--brand-red);
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -63,7 +64,7 @@ input {
 }
 
 #update-stock-button:active {
-    background-color: #F9B142;
+    background-color: var(--brand-blue);
 }
 
 

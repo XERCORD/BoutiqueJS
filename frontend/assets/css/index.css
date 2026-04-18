@@ -17,7 +17,7 @@ main {
     align-items: center;
     justify-content: space-between;
     width: 88%;
-    background: linear-gradient(135deg, #4D0000 0%, #8B0000 50%, #f15a25 100%);
+    background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-blue) 45%, var(--brand-red) 100%);
     border-radius: 16px;
     padding: 50px 60px;
     margin: 20px 0 10px 0;
@@ -41,7 +41,7 @@ main {
 }
 
 .hero_title span {
-    color: #F9B142;
+    color: var(--brand-yellow);
 }
 
 .hero_subtitle {
@@ -53,8 +53,8 @@ main {
 
 .hero_btn {
     display: inline-block;
-    background-color: #F9B142;
-    color: #4D0000;
+    background-color: var(--brand-yellow);
+    color: var(--text-primary);
     padding: 14px 32px;
     border-radius: 30px;
     font-weight: bold;
@@ -94,7 +94,7 @@ main {
     justify-content: center;
     margin: 50px 0;
     padding: 10px;
-    color: #4D0000;
+    color: var(--text-primary);
 }
 
 .articles {
@@ -110,7 +110,7 @@ main {
 }
 
 .article {
-    background-color: white;
+    background-color: var(--surface);
     border-radius: 10px;
     box-shadow: 0 0 5px #808080;
     width: 25%; 
@@ -136,7 +136,7 @@ h3 {
     margin: 0;
     padding: 0;
     text-align: center;
-    color: #f9b142;
+    color: var(--brand-blue);
 }
 
 .cat_item {
@@ -144,7 +144,7 @@ h3 {
 }
 
 .item_button {
-    background-color: #f15a25;
+    background-color: var(--brand-red);
     border: none;
     color: white;
     border-radius: 10px;
@@ -183,7 +183,7 @@ h4 {
 }
 
 .cat {
-    color: #F9B142;
+    color: var(--brand-yellow);
 }
 
 .product_name {
@@ -210,7 +210,7 @@ h4 {
 
 .prix-initial {
     text-decoration: none;
-    color: #4D0000;
+    color: var(--text-primary);
     font-weight: normal;
 }
 

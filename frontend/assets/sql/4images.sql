@@ -1,20 +1,23 @@
-INSERT INTO `state`(`name`) 
+-- APRÈS railway_init.sql (tous les blocs CREATE). Railway n’exécute souvent qu’UNE requête :
+-- sélectionne chaque INSERT ci‑dessous (du mot INSERT jusqu’au ; qui termine ce INSERT), Run, puis le suivant.
+
+INSERT INTO `railway`.`state`(`name`) 
 VALUES ("Neuf"), ("Très bon état"), ("Bon état"), ("Etat correct");
 
-INSERT INTO `Licence`(`name`) 
+INSERT INTO `railway`.`Licence`(`name`) 
 VALUES ("Pokémon"), ("Yu-Gi-Oh!");
 
-INSERT INTO `langage`(`name`) 
+INSERT INTO `railway`.`langage`(`name`) 
 VALUES ("Français"), ("Anglais"), ("Allemand"), ("Espagnol"), ("N/A");
 
-INSERT INTO `categories`(`name`) 
+INSERT INTO `railway`.`categories`(`name`) 
 VALUES ("Booster"), ("Cartes"), ("Blister"), ("Coffret"), ("Tin-box"), ("Metal-box"), ("Accessoires");
 
-INSERT INTO `edition`(`name`) 
+INSERT INTO `railway`.`edition`(`name`) 
 VALUES ("Les Vaillants Fracasseurs"), ("L'Ère du Seigneur Suprême"), ("Héritage de la destruction"),  ("Cauchemar Fantome"), ("Duelliste légendaire"), ("Incroyables Défenseurs"), ("Nexus du duelliste"), ("Le labyrinthe du millénaire"), ("Forces Temporelles"), ("Destinée de Paldéa"), ("Ecarlate et Violet"), ("Faille Paradoxe"), ("Stars Etincelantes"), ("Tempête Argentée"), ("N/A"), ("Mascarade Crépusculaire");
 
 
-INSERT INTO `products`(`name`, `price`, `stock`, `image_url`, `image_url2`, `image_url3`, `image_url4`, `description`, `réduction`, `edition_id`, `licence_id`, `state_id`, `langage_id`, `categories_id`) 
+INSERT INTO `railway`.`products`(`name`, `price`, `stock`, `image_url`, `image_url2`, `image_url3`, `image_url4`, `description`, `réduction`, `edition_id`, `licence_id`, `state_id`, `langage_id`, `categories_id`) 
 VALUES 
 ("Pokémon - Boite de Boosters Français - Display 36 Boosters EV06 - Ecarlate et Violet - Mascarade Crépusculaire
 ", 169.99, 3, 

@@ -1,10 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Rubik_Black', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    background-color: var(--page-bg);
+    color: var(--text-primary);
+    margin: 0;
 }
 .confirmation-message {
     text-align: center;
@@ -15,10 +18,15 @@ body {
 }
 .back-to-home {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background: linear-gradient(180deg, var(--brand-blue) 0%, var(--brand-blue-darker) 100%);
     color: white;
-    border: none;
+    border: 2px solid var(--brand-yellow);
+    border-radius: 8px;
     cursor: pointer;
     text-decoration: none;
     font-size: 16px;
+}
+
+.back-to-home:hover {
+    background: var(--brand-red);
 }

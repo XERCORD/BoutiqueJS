@@ -80,7 +80,7 @@ main {
 }
 
 .item_button {
-    background-color: #f15a25;
+    background-color: var(--brand-red);
     border: none;
     color: white;
     border-radius: 10px;
@@ -92,7 +92,7 @@ main {
 }
 
 .item_button:active {
-    background-color: #f9b142;
+    background-color: var(--brand-yellow);
 }
 
 .button {
@@ -116,8 +116,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #decrease {
-    color: #f9b142;
-    border: 3px solid #f9b142;
+    color: var(--brand-yellow);
+    border: 3px solid var(--brand-yellow);
     border-radius: 50%;
     padding: 15px 20px;
     cursor: pointer;
@@ -125,13 +125,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #decrease:hover {
-    background-color: #f9b142;
+    background-color: var(--brand-yellow);
     color: white;
 }
 
 #increase {
-    color: #f9b142;
-    border: 3px solid #f9b142;
+    color: var(--brand-yellow);
+    border: 3px solid var(--brand-yellow);
     border-radius: 50%;
     padding: 15px 20px;
     cursor: pointer;
@@ -139,7 +139,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #increase:hover {
-    background-color: #f9b142;
+    background-color: var(--brand-yellow);
     color: white;
 }
 
@@ -152,9 +152,9 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 47px;
     text-align: center;
     font-size: 1.5em;
-    border: 3px solid #f9b142;
+    border: 3px solid var(--brand-yellow);
     border-radius: 50%;
-    color: #f9b142;
+    color: var(--brand-yellow);
     ;
     font-family: 'Rubik_Black';
 }
@@ -186,7 +186,7 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
     user-select: none;
     left: 30px;
-    color: #f15a25;
+    color: var(--brand-red);
 
 }
 
@@ -196,7 +196,7 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
     user-select: none;
     right: 30px;
-    color: #f15a25;
+    color: var(--brand-red);
 }
 
 #left:hover {
@@ -289,19 +289,19 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 .color1 {
-    background-color: #FFE314;
+    background-color: var(--brand-yellow);
     padding: 10px;
 
 }
 
 .color2 {
-    background-color: #f9b142;
+    background-color: var(--brand-yellow);
     padding: 10px;
 }
 
 .prix-initial {
     text-decoration: none;
-    color: #4D0000;
+    color: var(--text-primary);
     font-weight: normal;
 }
 
@@ -387,7 +387,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .sub_img_wrapper.active  {
-    border: #f15a25 solid 2px;
+    border: var(--brand-red) solid 2px;
     padding: 10px;
     border-radius: 4px;
 }
