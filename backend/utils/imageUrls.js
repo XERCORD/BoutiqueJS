@@ -5,6 +5,19 @@ function normalizeAssetPath(url) {
   const u = url.trim();
   if (u.startsWith('../assets/')) return u.replace(/^\.\.\/assets\//, '/assets/');
   if (u.startsWith('assets/')) return `/${u}`;
+
+  /* Base Railway / prod : URLs absolues → même chemin en relatif pour que localhost serve /assets depuis Express */
+  if (/^https?:\/\//i.test(u)) {
+    try {
+      const parsed = new URL(u);
+      if (parsed.pathname.startsWith('/assets/')) {
+        return parsed.pathname + (parsed.search || '');
+      }
+    } catch (e) {
+      /* URL invalide : renvoyer tel quel */
+    }
+  }
+
   return u;
 }
 
