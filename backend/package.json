@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "node --watch app.js",
     "import-sql": "node scripts/import-railway-data.js"
   },
   "author": "zolaka",
@@ -15,8 +15,5 @@
     "express": "^4.19.2",
     "mysql2": "^3.14.1",
     "node-fetch": "^3.3.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
   }
 }
