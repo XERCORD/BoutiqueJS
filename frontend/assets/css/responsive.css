@@ -29,9 +29,12 @@ body {
     }
 }
 
-img,
-video,
-svg:not(#svg_bar):not(.svg1):not(.svg2) {
+/* Ne pas forcer height:auto sur tous les img — casse les mises en page flex et certains SVG */
+img {
+    max-width: 100%;
+}
+
+video {
     max-width: 100%;
     height: auto;
 }
