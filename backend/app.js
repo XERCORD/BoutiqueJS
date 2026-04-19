@@ -71,5 +71,6 @@ app.get('/confirmation.html', (req, res) => {
 });
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(`Server listening on port ${port}`);
+  const url = `http://localhost:${port}`;
+  console.log(`\n  Boutique prête — ouvre dans le navigateur :\n  ${url}\n`);
 });
