@@ -5,11 +5,7 @@ function initCategoriePage() {
         event.preventDefault();
         const categoryId = event.currentTarget.dataset.categoryId;
         const categoryUrl = `categorie.html?categories=${categoryId}`;
-        if (typeof window.__spaNavigate === 'function') {
-            window.__spaNavigate(new URL(categoryUrl, window.location.href).href);
-        } else {
-            window.location.href = categoryUrl;
-        }
+        window.location.href = categoryUrl;
     }
 
     categoryLinks.forEach(function (link) {

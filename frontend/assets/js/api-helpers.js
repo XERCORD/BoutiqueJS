@@ -31,3 +31,15 @@ window.fetchJsonArray = function fetchJsonArray(url, init) {
         });
     });
 };
+
+/**
+ * Init page au chargement (navigation classique, sans SPA).
+ * Le paramètre filename est ignoré : chaque page ne charge que son propre script.
+ */
+window.bindPage = function (_filename, initFn) {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFn);
+    } else {
+        initFn();
+    }
+};

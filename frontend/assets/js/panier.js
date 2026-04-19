@@ -31,11 +31,7 @@ function initPanierPage() {
     function deleteArticle(articleIndex) {
         panierData.splice(articleIndex, 1);
         localStorage.setItem('panier', JSON.stringify(panierData));
-        if (typeof window.__spaSoftReload === 'function') {
-            window.__spaSoftReload();
-        } else {
-            location.reload();
-        }
+        location.reload();
     }
 
     function updateTotalPrice(panierData) {
