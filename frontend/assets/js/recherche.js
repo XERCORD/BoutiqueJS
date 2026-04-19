@@ -5,19 +5,20 @@ function initRecherchePage() {
     if (name) {
         const searchName = name.toLowerCase();
 
-        fetch(`/api/products/search/${encodeURIComponent(searchName)}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(products => {
+        fetchJsonArray('/api/products/search/' + encodeURIComponent(searchName))
+            .then(function (products) {
                 displayProducts(products);
                 updateHeart();
             })
-            .catch(error => {
+            .catch(function (error) {
                 console.error('There was a problem with the fetch operation:', error);
+                var box = document.querySelector('.articles');
+                if (box) {
+                    box.innerHTML =
+                        '<p class="api-error-banner" role="alert">' +
+                        String(error.message).replace(/</g, '&lt;') +
+                        '</p>';
+                }
             });
     }
 }
@@ -28,6 +29,10 @@ function displayProducts(products) {
     const articlesContainer = document.querySelector('.articles');
 
     articlesContainer.innerHTML = '';
+
+    if (!Array.isArray(products)) {
+        return;
+    }
 
     products.forEach(product => {
         const productElement = document.createElement('div');

@@ -248,10 +248,29 @@ function initArticlePage() {
     }
     
     fetch(productUrl)
-        .then(response => response.json())
-        .then(data => displayProductDetails(data))
-        .catch(error => {
-            console.error("Erreur lors de la récupération des détails du produit :", error);
+        .then(function (response) {
+            return response.json().then(function (data) {
+                return { ok: response.ok, data: data };
+            });
+        })
+        .then(function (result) {
+            if (!result.ok || (result.data && result.data.error)) {
+                throw new Error(
+                    (result.data && result.data.error) || 'Produit introuvable ou erreur serveur'
+                );
+            }
+            displayProductDetails(result.data);
+        })
+        .catch(function (error) {
+            console.error('Erreur lors de la récupération des détails du produit :', error);
+            var nameEl = document.getElementById('product_name');
+            if (nameEl) {
+                nameEl.textContent = 'Erreur de chargement';
+            }
+            var desc = document.getElementById('product_description');
+            if (desc) {
+                desc.textContent = String(error.message);
+            }
         });
 
     function addToCart(product) {

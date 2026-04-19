@@ -19,20 +19,20 @@ function initCategoriePage() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryId = urlParams.get('categories');
 
-    fetch(`/api/products/categories/${categoryId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(products => {
-            console.log(products);
+    fetchJsonArray('/api/products/categories/' + encodeURIComponent(categoryId))
+        .then(function (products) {
             displayProducts(products);
             updateFavoritedProductsDisplay();
         })
-        .catch(error => {
+        .catch(function (error) {
             console.error('There was a problem with the fetch operation:', error);
+            var box = document.querySelector('.articles');
+            if (box) {
+                box.innerHTML =
+                    '<p class="api-error-banner" role="alert">' +
+                    String(error.message).replace(/</g, '&lt;') +
+                    '</p>';
+            }
         });
 }
 
@@ -41,6 +41,9 @@ bindPage('categorie.html', initCategoriePage);
 
 function displayProducts(products) {
     const productsList = document.querySelector('.articles');
+    if (!productsList) return;
+    productsList.innerHTML = '';
+    if (!Array.isArray(products)) return;
 
     products.forEach(product => {
         const productElement = document.createElement('div');

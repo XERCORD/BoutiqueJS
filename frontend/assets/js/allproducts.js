@@ -22,17 +22,27 @@ function initAllproductsPage() {
         }
     }
 
+    function showFetchError(message) {
+        var box = document.querySelector('.articles');
+        if (!box) return;
+        box.innerHTML =
+            '<p class="api-error-banner" role="alert">' +
+            '<strong>Impossible de charger les produits.</strong><br>' +
+            String(message).replace(/</g, '&lt;') +
+            '</p>';
+    }
+
     function getProducts() {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
+        fetchJsonArray(url)
+            .then(function (data) {
                 allProductsData = data;
                 applyThemeFromUrl();
                 applyFiltersAndSort();
-                console.log(data);
             })
-            .catch(error => {
-                console.error("Erreur lors de la récupération des produits :", error);
+            .catch(function (error) {
+                console.error('Erreur lors de la récupération des produits :', error);
+                allProductsData = [];
+                showFetchError(error.message || 'Erreur réseau ou serveur.');
             });
     }
 
@@ -88,6 +98,9 @@ function initAllproductsPage() {
     }
 
     function filterProducts(products, filters, language, editions) {
+        if (!Array.isArray(products)) {
+            return [];
+        }
         return products.filter(product => {
             const category = product.category_name;
             const licence = product.licence_name;

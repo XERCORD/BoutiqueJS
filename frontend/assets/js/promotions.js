@@ -1,20 +1,28 @@
 const url = '/api/products';
 
 function getProducts() {
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); 
+    fetchJsonArray(url)
+        .then(function (data) {
             displayProductsByLicence(data);
         })
-        .catch(error => {
-            console.error("Erreur lors de la récupération des produits :", error);
+        .catch(function (error) {
+            console.error('Erreur lors de la récupération des produits :', error);
+            var box = document.querySelector('.articles');
+            if (box) {
+                box.innerHTML =
+                    '<p class="api-error-banner" role="alert"><strong>Chargement impossible.</strong> ' +
+                    String(error.message).replace(/</g, '&lt;') +
+                    '</p>';
+            }
         });
 }
 
 bindPage('promotions.html', getProducts);
 
 function displayProductsByLicence(products) {
+    if (!Array.isArray(products)) {
+        return;
+    }
     const productsWithReduction = products.filter(product => product.réduction !== 0);
 
     const productsList = document.querySelector('.articles');
