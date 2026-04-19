@@ -47,13 +47,15 @@ main {
     box-shadow: 0 0 5px #808080;
     background-color: white;
     width: 79%;
+    max-width: 1100px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     margin: 50px 0;
     padding: 30px;
-    gap: 10px;
-    flex-direction: column;}
+    gap: 1.25rem;
+    flex-direction: column;
+}
 
 .article_desc {
     display: flex;
@@ -263,14 +265,66 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 3em;
 }
 
-.caract>* {
-    display: flex;
-    font-size: 0.75em;
-    font-family: 'Rubik_Light';
+/* --- Bloc caractéristiques (fiche produit) --- */
+.caract {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0.75rem;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #ffffff 0%, #fffbf2 45%, #fff3c8 100%);
+    border: 1px solid rgba(255, 203, 5, 0.5);
+    box-shadow:
+        0 8px 28px rgba(30, 58, 114, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-.txt {
-    width: 70%;
+.caract__title {
+    margin: 0;
+    padding: 1rem 1.35rem 0.85rem;
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brand-blue-darker);
+    font-family: 'Rubik_Black', sans-serif;
+    border-bottom: 3px solid var(--brand-yellow);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 249, 224, 0.9) 100%);
+}
+
+.caract > div.langue,
+.caract > div.edition,
+.caract > div.licence,
+.caract > div.etat {
+    display: grid;
+    grid-template-columns: minmax(7.5rem, 11rem) minmax(0, 1fr);
+    column-gap: 1.25rem;
+    row-gap: 0.35rem;
+    align-items: center;
+    padding: 0.9rem 1.35rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(60, 90, 166, 0.1);
+}
+
+.caract > div.etat {
+    border-bottom: none;
+}
+
+.caract .txt {
+    width: auto;
+    margin: 0;
+    font-family: 'Rubik_Black', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: var(--brand-blue-darker);
+    line-height: 1.3;
+}
+
+.caract [id^='data'] {
+    margin: 0;
+    font-family: 'Rubik_Light', sans-serif;
+    font-size: 0.98rem;
+    line-height: 1.45;
+    color: #2c3d5c;
 }
 
 .sub_img_ctn {
@@ -288,15 +342,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 
-.color1 {
-    background-color: var(--brand-yellow);
-    padding: 10px;
-
+.caract > div.color1 {
+    background: rgba(255, 255, 255, 0.75);
 }
 
-.color2 {
-    background-color: var(--brand-yellow);
-    padding: 10px;
+.caract > div.color2 {
+    background: rgba(60, 90, 166, 0.07);
 }
 
 .prix-initial {
@@ -348,15 +399,26 @@ input[type="number"]::-webkit-outer-spin-button {
         gap: 10px;
     }
 
-    .caract>* {
-        display: flex;
-        font-size: 0.75em;
-        font-family: 'Rubik_Light';
-        justify-content: space-between;
+    .caract > div.langue,
+    .caract > div.edition,
+    .caract > div.licence,
+    .caract > div.etat {
+        grid-template-columns: minmax(6rem, 9rem) 1fr;
+        padding: 0.75rem 1rem;
+        column-gap: 0.75rem;
     }
 
-    #data2 {
-        text-align: end;
+    .caract__title {
+        padding: 0.85rem 1rem 0.65rem;
+        font-size: 0.88rem;
+    }
+
+    .caract .txt {
+        font-size: 0.78rem;
+    }
+
+    .caract [id^='data'] {
+        font-size: 0.9rem;
     }
 
     .qtn_txt {
@@ -413,4 +475,25 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .arrow-button.right {
     right: 10px;
+}
+
+@media screen and (max-width: 480px) {
+    .caract > div.langue,
+    .caract > div.edition,
+    .caract > div.licence,
+    .caract > div.etat {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .caract .txt {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        opacity: 0.85;
+    }
+
+    .caract [id^='data'] {
+        font-size: 1.02rem;
+    }
 }
