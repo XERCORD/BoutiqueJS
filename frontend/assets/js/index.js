@@ -1,9 +1,5 @@
 const url = '/api/products';
 
-document.addEventListener('DOMContentLoaded', () => {
-    getProducts();
-});
-
 function getProducts() {
     fetch(url)
         .then(response => response.json())
@@ -152,3 +148,5 @@ function switchImage(yes2, yes) {
     });
     
 }
+
+bindPage('index.html', getProducts);

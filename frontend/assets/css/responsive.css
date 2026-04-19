@@ -1,0 +1,410 @@
+/**
+ * Mise en page responsive — site Yblazing Fail
+ * Chargé via header.css (toutes les pages avec en-tête)
+ */
+
+/* ------------------------------------------------------------------------- */
+/* Base : éviter débordements, images fluides                                 */
+/* ------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background-position-y: min(120px, 25vw);
+        background-size: min(140%, 900px) auto;
+    }
+}
+
+img,
+video,
+svg:not(#svg_bar):not(.svg1):not(.svg2) {
+    max-width: 100%;
+    height: auto;
+}
+
+main {
+    max-width: 100%;
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+}
+
+/* ------------------------------------------------------------------------- */
+/* Tablette & petit desktop : en-tête plus souple                             */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 1100px) {
+    header {
+        flex-wrap: wrap;
+        row-gap: 12px;
+        padding: 12px 16px;
+        justify-content: center;
+    }
+
+    .logo {
+        width: min(320px, 42vw);
+        min-width: 160px;
+        max-width: 100%;
+    }
+
+    ul.ul_header {
+        width: auto;
+        min-width: min(100%, 520px);
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 12px;
+    }
+
+    li {
+        padding: 4px 12px 4px 0;
+        border-right: solid 2px var(--brand-blue);
+    }
+
+    .search {
+        width: min(100%, 360px);
+        flex: 1 1 220px;
+    }
+
+    .a_header {
+        flex-shrink: 0;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Accueil : hero & grilles produits                                          */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 960px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 94%;
+        padding: 36px 28px;
+        gap: 28px;
+    }
+
+    .hero_content {
+        align-items: center;
+    }
+
+    .hero_title {
+        font-size: clamp(1.6rem, 5vw, 2.4rem);
+    }
+
+    .hero_subtitle {
+        font-size: clamp(0.95rem, 2.8vw, 1.1rem);
+    }
+
+    .hero_logos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero_logos img {
+        width: min(160px, 38vw);
+    }
+
+    .main_ctn {
+        width: 94%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .titre2 {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        margin-left: 8px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .category_ctn .article,
+    .articles > .category_ctn .article,
+    main .articles .article {
+        width: calc(50% - 16px) !important;
+        min-width: 0;
+        max-width: 360px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .category_ctn .article,
+    .articles .article {
+        width: 100% !important;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product_name {
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Liste produits / promotions / recherche / catégorie / favoris             */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 992px) {
+    main > .main_ctn {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+    }
+
+    /* Colonne : filtres au-dessus, contenu en dessous */
+    body .tri_main_ctn {
+        display: flex !important;
+        flex-direction: column;
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+        order: -1;
+        margin-bottom: 16px;
+    }
+
+    .article_ctn,
+    .test {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .choice_button {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .choice {
+        width: 96%;
+    }
+
+    .cat_img {
+        max-height: 120px;
+        object-fit: contain;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tri_prix {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .form1 {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .trier_title {
+        width: 100%;
+        text-align: center;
+    }
+
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Fiche article                                                              */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 900px) {
+    .img_desc {
+        flex-direction: column !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+
+    .images_ctn {
+        width: 100% !important;
+        flex-direction: column !important;
+    }
+
+    .sub_img_ctn {
+        width: 100% !important;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .article_desc {
+        width: 100% !important;
+    }
+
+    .prix {
+        font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+    }
+
+    .item_button {
+        width: 100%;
+        max-width: 320px;
+        margin-right: 0 !important;
+    }
+
+    .button {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #left,
+    #right {
+        left: auto !important;
+        right: auto !important;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Panier                                                                     */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 900px) {
+    .container_all {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .prix_all {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .article_line {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .img_article {
+        width: auto;
+        flex: 0 0 72px;
+    }
+
+    .name_desc {
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .formulaire_qty {
+        width: auto;
+        min-width: 80px;
+    }
+
+    .prix {
+        width: auto;
+        flex: 1 1 80px;
+    }
+
+    .trash {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+
+    #quantity {
+        font-size: 14px;
+        width: auto;
+        min-width: 56px;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Contact                                                                    */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+    .form_ctn {
+        width: 94% !important;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 16px;
+    }
+
+    .main_ctn {
+        width: 100%;
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Paiement & confirmation (pages courtes)                                    */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 480px) {
+    body:has(#payment-form) {
+        height: auto !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 16px;
+        align-items: flex-start;
+    }
+
+    body:has(.confirmation-message) {
+        height: auto !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 16px;
+    }
+
+    body:has(#payment-form) .container {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .confirmation-message h1 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+}
+
+/* ------------------------------------------------------------------------- */
+/* Footer : toujours visible sur mobile (remplace l’ancien display:none)      */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 600px) {
+    footer {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 24px 16px 32px;
+    }
+
+    footer .contact,
+    footer .info {
+        align-items: center !important;
+    }
+
+    footer .info {
+        align-items: center !important;
+    }
+
+    .img_footer {
+        width: min(280px, 70%);
+    }
+}

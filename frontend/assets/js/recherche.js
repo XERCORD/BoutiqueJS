@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+function initRecherchePage() {
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('name');
 
@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('There was a problem with the fetch operation:', error);
             });
     }
-});
+}
+
+bindPage('recherche.html', initRecherchePage);
 
 function displayProducts(products) {
     const articlesContainer = document.querySelector('.articles');

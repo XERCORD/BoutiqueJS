@@ -54,10 +54,6 @@ app.get('/recherche.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/templates/recherche.html'));
 });
 
-app.get('/licence.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/templates/licence.html'));
-});
-
 app.get('/categorie.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/templates/categorie.html'));
 });

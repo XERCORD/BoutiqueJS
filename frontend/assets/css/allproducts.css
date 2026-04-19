@@ -279,10 +279,6 @@ optgroup {
 
 @media screen and (max-width: 600px) {
 
-    .tri_main_ctn {
-    display: none;   
- }
-
     .tri_titre {
         font-size: 1em;
     }

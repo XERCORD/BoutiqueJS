@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initAllproductsPage() {
     let activeFilters = [];
     let selectedLanguage = '';
     let selectedEdition = '';
@@ -7,11 +7,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let allProductsData = [];
     const url = '/api/products';
 
+    function applyThemeFromUrl() {
+        const theme = new URLSearchParams(window.location.search).get('theme');
+        if (!theme) return;
+        const t = theme.toLowerCase();
+        if (t === 'pokemon' || t === 'pokémon') {
+            if (!activeFilters.includes('filter-pokemon')) {
+                activeFilters.push('filter-pokemon');
+            }
+        } else if (t === 'yugioh' || t === 'yu-gi-oh' || t === 'ygo') {
+            if (!activeFilters.includes('filter-ygo')) {
+                activeFilters.push('filter-ygo');
+            }
+        }
+    }
+
     function getProducts() {
         fetch(url)
             .then(response => response.json())
             .then(data => {
                 allProductsData = data;
+                applyThemeFromUrl();
                 applyFiltersAndSort();
                 console.log(data);
             })
@@ -238,7 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     getProducts();
-});
+}
+
+bindPage('allproducts.html', initAllproductsPage);
 
 function heartImgUpdate() {
     document.querySelectorAll('.empty-heart').forEach(emptyHeart => {

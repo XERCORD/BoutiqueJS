@@ -1,6 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const panierData = JSON.parse(localStorage.getItem('panier'));
+function initPanierPage() {
     const articleAllDiv = document.querySelector('.article_all');
+    if (articleAllDiv) {
+        articleAllDiv.innerHTML = '';
+    }
+    const panierData = JSON.parse(localStorage.getItem('panier')) || [];
 
     function updatePrice(articleDiv, article) {
         const quantityInput = articleDiv.querySelector('.formulaire_qty input[name="quantity"]');
@@ -28,7 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function deleteArticle(articleIndex) {
         panierData.splice(articleIndex, 1);
         localStorage.setItem('panier', JSON.stringify(panierData));
-        location.reload();
+        if (typeof window.__spaSoftReload === 'function') {
+            window.__spaSoftReload();
+        } else {
+            location.reload();
+        }
     }
 
     function updateTotalPrice(panierData) {
@@ -101,4 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     updateTotalPrice(panierData);
-});
+}
+
+bindPage('panier.html', initPanierPage);

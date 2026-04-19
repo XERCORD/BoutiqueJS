@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    displayFavoriteProducts();
-});
+bindPage('favorite.html', displayFavoriteProducts);
 
 function displayFavoriteProducts() {
     const favorisList = document.querySelector('.articles');

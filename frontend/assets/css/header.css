@@ -202,10 +202,6 @@ svg {
 
 @media screen and (max-width: 600px) { 
 
-    footer {
-        display: none;
-    }
-
     .search {
         display: none;
     }

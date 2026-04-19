@@ -12,7 +12,7 @@ function getProducts() {
         });
 }
 
-document.addEventListener('DOMContentLoaded', getProducts);
+bindPage('promotions.html', getProducts);
 
 function displayProductsByLicence(products) {
     const productsWithReduction = products.filter(product => product.réduction !== 0);

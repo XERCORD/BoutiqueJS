@@ -1,14 +1,18 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const categoryLinks = document.querySelectorAll('.nav');
+function initCategoriePage() {
+    const categoryLinks = document.querySelectorAll('a[data-category-id]');
 
     function updateCategory(event) {
         event.preventDefault();
-        const categoryId = event.target.dataset.categoryId;
+        const categoryId = event.currentTarget.dataset.categoryId;
         const categoryUrl = `categorie.html?categories=${categoryId}`;
-        window.location.href = categoryUrl;
+        if (typeof window.__spaNavigate === 'function') {
+            window.__spaNavigate(new URL(categoryUrl, window.location.href).href);
+        } else {
+            window.location.href = categoryUrl;
+        }
     }
 
-    categoryLinks.forEach(link => {
+    categoryLinks.forEach(function (link) {
         link.addEventListener('click', updateCategory);
     });
 
@@ -30,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
-});
+}
+
+bindPage('categorie.html', initCategoriePage);
 
 
 function displayProducts(products) {

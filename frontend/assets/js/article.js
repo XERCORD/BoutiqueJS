@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function initArticlePage() {
     var quantityInput = document.getElementById("quantity");
     var decreaseButton = document.querySelector("#decrease");
     var increaseButton = document.querySelector("#increase");
@@ -237,6 +237,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.querySelector('.item_button').addEventListener('click', function() {
             addToCart(product);
+            var am = document.getElementById('addedMessage');
+            if (am) {
+                am.style.display = 'block';
+                setTimeout(function () {
+                    am.style.display = 'none';
+                }, 2000);
+            }
         });
     }
     
@@ -289,11 +296,6 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('panier', JSON.stringify(cart));
         updateCartBubble();
     }
-});
+}
 
-document.querySelector('.item_button').addEventListener('click', function() {
-    document.getElementById('addedMessage').style.display = 'block';
-    setTimeout(function() {
-        document.getElementById('addedMessage').style.display = 'none';
-    }, 2000); 
-});
+bindPage('article.html', initArticlePage);
