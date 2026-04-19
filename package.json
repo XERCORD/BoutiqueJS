@@ -4,9 +4,10 @@
   "description": "Boutique e-commerce — Express + frontend statique (déploiement Railway)",
   "scripts": {
     "postinstall": "npm ci --prefix backend --omit=dev",
-    "start": "node backend/app.js"
+    "start": "node backend/app.js",
+    "dev": "node --watch backend/app.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18.11"
   }
 }

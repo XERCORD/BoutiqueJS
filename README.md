@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/node.js-%3E%3D18-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
+  <img src="https://img.shields.io/badge/node.js-%3E%3D18.11-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
   <img src="https://img.shields.io/badge/Express-4.x-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/MySQL-mysql2-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
   <img src="https://img.shields.io/badge/frontend-Vanilla-FFCB05?style=for-the-badge&logo=javascript&logoColor=222" alt="Vanilla JS" />
@@ -55,7 +55,7 @@ Le tout avec une identité visuelle forte (palette teal / jaune / rouge), des pa
 - **Backend** : [Express](https://expressjs.com/) 4.x, [mysql2](https://github.com/sidorares/node-mysql2) (pool), CORS  
 - **Base** : MySQL (schéma type e-commerce : produits, catégories, licences, etc.)  
 - **Frontend** : HTML5, CSS3 (variables, grid, responsive), JavaScript ES6+ (fetch, `localStorage`, pas de framework imposé)  
-- **Outils** : Node ≥ 18, scripts npm à la racine et dans `backend/`
+- **Outils** : Node ≥ 18.11 (pour `node --watch` en dev), scripts npm à la racine et dans `backend/`
 
 ---
 
@@ -86,7 +86,7 @@ flowchart LR
 
 ### Prérequis
 
-- [Node.js](https://nodejs.org/) **≥ 18**
+- [Node.js](https://nodejs.org/) **≥ 18.11** (LTS recommandé ; requis pour `npm run dev` avec rechargement auto)
 - **MySQL** en local (ou URL distante type Railway)
 - Un client MySQL ou import du script SQL du dossier `frontend/assets/sql/` si fourni
 
@@ -126,16 +126,18 @@ Depuis la **racine du projet** :
 npm start
 ```
 
+Mode **développement** (redémarrage du serveur à chaque modification de `app.js` ou fichiers importés) :
+
+```bash
+npm run dev
+```
+
 Puis ouvre : **http://localhost:3000**  
 (Les pages HTML sont servies depuis `frontend/templates`, les assets depuis `/assets`.)
 
-Alternative depuis `backend/` :
+Tu peux aussi lancer `npm run dev` depuis le dossier **`backend/`** (même effet).
 
-```bash
-cd backend && npm run dev
-```
-
-(`nodemon` si installé en dev.)
+(Rechargement via **`node --watch`**, inclus dans Node **≥ 18.11** — plus besoin de `nodemon` : l’install racine utilise `npm ci --omit=dev`, qui ne télécharge pas les devDependencies.)
 
 ---
 
@@ -145,7 +147,7 @@ cd backend && npm run dev
 |----------|-------------|--------|
 | `npm start` | Racine | Lance `node backend/app.js` |
 | `npm start` | `backend/` | Idem |
-| `npm run dev` | `backend/` | Développement avec rechargement (`nodemon`) |
+| `npm run dev` | Racine ou `backend/` | Même serveur que `start`, avec **rechargement auto** (`node --watch`) |
 | `npm run import-sql` | `backend/` | Script d’import de données (selon projet) |
 
 ---
@@ -193,6 +195,10 @@ BoutiqueJS/
 
 Le projet est pensé pour tourner sur une plateforme type **Railway** : une commande `npm start` à la racine, variables MySQL injectées, CORS activé, SSL MySQL géré quand `RAILWAY_ENVIRONMENT` est défini.
 
+### Images en local après un déploiement Railway
+
+Si ta base MySQL contient des URLs **absolues** (`https://…railway.app/assets/...`), l’API les réécrit en chemins **`/assets/...`** pour que **le même dossier** `frontend/assets` soit utilisé en local et en prod. Ouvre toujours le site via **`http://localhost:3000`** (serveur Node), pas via Live Server seul, sinon `/assets` ne correspond pas au bon hôte. Vérifie aussi que les fichiers images sont bien présents dans `frontend/assets/img/`.
+
 ---
 
 <a id="readme-credits"></a>
@@ -216,11 +222,7 @@ Identité fictive **Yblazing Fail** : boutique de cartes à collectionner (Poké
 
 ---
 
-## Licence
 
-Projet académique — usage et licence à préciser selon ton établissement ou ta préférence (ISC côté `backend/package.json` pour le package npm).
-
----
 
 <p align="center">
   <sub>Si ce README t’a aidé, une petite ⭐ sur le repo, c’est la carte rare qui complète la collection.</sub>
