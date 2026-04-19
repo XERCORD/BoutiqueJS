@@ -24,7 +24,7 @@
     padding: 2.75rem 1.75rem 2.5rem;
     border-radius: 20px;
     overflow: hidden;
-    background: linear-gradient(145deg, #1e1030 0%, #2d1f45 35%, #1a3a72 70%, #0f1729 100%);
+    background: linear-gradient(145deg, #1e1030 0%, #2d1f45 35%, rgb(14, 75, 71) 70%, #0f1729 100%);
     box-shadow:
         0 0 0 1px rgba(232, 197, 71, 0.35),
         0 20px 50px rgba(0, 0, 0, 0.45),
@@ -374,7 +374,7 @@
     margin-bottom: 1.5rem;
     border-radius: 14px;
     background: rgba(255, 203, 5, 0.12);
-    border: 1px dashed rgba(60, 90, 166, 0.35);
+    border: 1px dashed rgba(22, 136, 128, 0.35);
     font-family: 'Rubik_Light', sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -385,7 +385,7 @@
     margin-bottom: 0.85rem;
     border-radius: 14px;
     background: var(--surface);
-    border: 1px solid rgba(60, 90, 166, 0.15);
+    border: 1px solid rgba(22, 136, 128, 0.15);
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
     overflow: hidden;
     transition:
@@ -394,8 +394,8 @@
 }
 
 .cgv-details[open] {
-    border-color: rgba(60, 90, 166, 0.35);
-    box-shadow: 0 10px 36px rgba(60, 90, 166, 0.15);
+    border-color: rgba(22, 136, 128, 0.35);
+    box-shadow: 0 10px 36px rgba(22, 136, 128, 0.15);
 }
 
 .cgv-details summary {
@@ -437,7 +437,7 @@
     font-size: 0.92rem;
     line-height: 1.65;
     color: #3a4a66;
-    border-top: 1px solid rgba(60, 90, 166, 0.08);
+    border-top: 1px solid rgba(22, 136, 128, 0.08);
 }
 
 .cgv-details__body p {

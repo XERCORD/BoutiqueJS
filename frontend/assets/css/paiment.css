@@ -12,7 +12,7 @@ body {
     background-color: var(--surface);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(60, 90, 166, 0.15);
+    box-shadow: 0 4px 20px rgba(22, 136, 128, 0.15);
     border: 2px solid var(--brand-blue);
     width: 300px;
 }

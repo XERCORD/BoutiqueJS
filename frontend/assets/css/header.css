@@ -1,13 +1,13 @@
-/* Palette alignée sur le logo (jaune / bleu / rouge type Pokémon TCG) */
+/* Palette : accent principal rgb(22, 136, 128), jaune / rouge conservés */
 :root {
     --brand-yellow: #FFCB05;
     --brand-yellow-soft: #FFF9E0;
-    --brand-blue: #3C5AA6;
-    --brand-blue-dark: #2A75BB;
-    --brand-blue-darker: #1e3a72;
+    --brand-blue: rgb(22, 136, 128);
+    --brand-blue-dark: rgb(32, 155, 146);
+    --brand-blue-darker: rgb(12, 88, 83);
     --brand-red: #E4000F;
-    --text-primary: #243b6b;
-    --page-bg: #eef2fb;
+    --text-primary: rgb(26, 82, 78);
+    --page-bg: #ecf6f5;
     --surface: #ffffff;
 }
 
@@ -92,7 +92,7 @@ footer {
     );
     border-top: 2px solid rgba(255, 203, 5, 0.28);
     box-shadow:
-        0 -12px 40px rgba(15, 35, 80, 0.35),
+        0 -12px 40px rgba(8, 55, 52, 0.38),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
@@ -183,7 +183,7 @@ a {
 }
 
 .search_submit:hover {
-    background-color: rgba(60, 90, 166, 0.12);
+    background-color: rgba(22, 136, 128, 0.14);
 }
 
 .search_submit:focus-visible {
@@ -202,7 +202,7 @@ a {
     color: var(--text-primary);
     background: rgba(255, 255, 255, 0.85);
     border-radius: 12px;
-    border: 1px dashed rgba(60, 90, 166, 0.35);
+    border: 1px dashed rgba(22, 136, 128, 0.38);
 }
 
 .search_bar::placeholder {
