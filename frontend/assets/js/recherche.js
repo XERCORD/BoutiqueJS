@@ -1,26 +1,40 @@
 function initRecherchePage() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('name');
-
-    if (name) {
-        const searchName = name.toLowerCase();
-
-        fetchJsonArray('/api/products/search/' + encodeURIComponent(searchName))
-            .then(function (products) {
-                displayProducts(products);
-                updateHeart();
-            })
-            .catch(function (error) {
-                console.error('There was a problem with the fetch operation:', error);
-                var box = document.querySelector('.articles');
-                if (box) {
-                    box.innerHTML =
-                        '<p class="api-error-banner" role="alert">' +
-                        String(error.message).replace(/</g, '&lt;') +
-                        '</p>';
-                }
-            });
+    /* bindPage ignore le nom de fichier : ce script est chargé partout, on ne fait la recherche que sur recherche.html */
+    var path = window.location.pathname || '';
+    if (!path.endsWith('recherche.html')) {
+        return;
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const raw = urlParams.get('name');
+    const searchName = raw != null ? String(raw).trim() : '';
+
+    if (!searchName) {
+        var hintBox = document.querySelector('.articles');
+        if (hintBox) {
+            hintBox.innerHTML =
+                '<p class="search-placeholder-msg">Saisissez un mot-clé dans la barre ci-dessus, puis validez (Entrée ou loupe) pour afficher les résultats.</p>';
+        }
+        return;
+    }
+
+    const q = searchName.toLowerCase();
+
+    fetchJsonArray('/api/products/search/' + encodeURIComponent(q))
+        .then(function (products) {
+            displayProducts(products);
+            updateHeart();
+        })
+        .catch(function (error) {
+            console.error('There was a problem with the fetch operation:', error);
+            var box = document.querySelector('.articles');
+            if (box) {
+                box.innerHTML =
+                    '<p class="api-error-banner" role="alert">' +
+                    String(error.message).replace(/</g, '&lt;') +
+                    '</p>';
+            }
+        });
 }
 
 bindPage('recherche.html', initRecherchePage);

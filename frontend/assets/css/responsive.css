@@ -53,6 +53,7 @@ video {
 }
 
 main {
+    flex: 1 1 auto;
     max-width: 100%;
     padding-left: env(safe-area-inset-left, 0);
     padding-right: env(safe-area-inset-right, 0);
@@ -398,29 +399,38 @@ main {
 }
 
 /* ------------------------------------------------------------------------- */
+/* Footer : logo lisible entre tablette et mobile                             */
+/* ------------------------------------------------------------------------- */
+
+@media screen and (max-width: 900px) {
+    .img_footer {
+        max-width: min(380px, 58vw);
+    }
+}
+
+/* ------------------------------------------------------------------------- */
 /* Footer : toujours visible sur mobile (remplace l’ancien display:none)      */
 /* ------------------------------------------------------------------------- */
 
 @media screen and (max-width: 600px) {
     footer {
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        justify-items: center;
         text-align: center;
-        gap: 20px;
-        padding: 24px 16px 32px;
+        gap: 1.75rem;
+        padding: 2.25rem 1.25rem 2.75rem;
     }
 
     footer .contact,
     footer .info {
+        justify-self: center !important;
         align-items: center !important;
-    }
-
-    footer .info {
-        align-items: center !important;
+        text-align: center !important;
     }
 
     .img_footer {
-        width: min(280px, 70%);
+        width: min(280px, 85vw);
+        max-width: 320px;
     }
 }

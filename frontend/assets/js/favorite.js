@@ -13,7 +13,7 @@ function displayFavoriteProducts() {
     }
 
     favorites.forEach(productId => {
-        fetch(`/api/products/${productId}`)
+        fetch(window.resolveApiUrl('/api/products/' + encodeURIComponent(productId)))
             .then(response => response.json())
             .then(product => {
                 const productElement = createProductElement(product);

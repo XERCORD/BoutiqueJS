@@ -69,7 +69,7 @@ function initArticlePage() {
 
     const params = new URLSearchParams(window.location.search);
     const productId = params.get('id');
-    const productUrl = `/api/products/${productId}`;
+    const productUrl = window.resolveApiUrl('/api/products/' + encodeURIComponent(productId));
 
     function displayProductDetails(product) {
         document.getElementById('product_name').textContent = product.name;

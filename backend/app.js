@@ -30,6 +30,10 @@ app.get('/contact.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/templates/contact.html'));
 });
 
+app.get('/cgv.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/templates/cgv.html'));
+});
+
 app.get('/allproducts.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/templates/allproducts.html'));
 });

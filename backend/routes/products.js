@@ -4,6 +4,7 @@ const router = express.Router();
 const controllers = require('../controllers/products');
 
 router.get('/products', controllers.getProducts);
+router.get('/products/search/:name', controllers.searchProductsByName);
 router.get('/products/:id', controllers.getProductById);
 router.get('/products/languages/:id', controllers.getProductsByLanguage);
 router.get('/products/categories/:id', controllers.getProductsByCategories);
@@ -12,7 +13,6 @@ router.get('/products/editions/:id', controllers.getProductByEdition);
 router.get('/products/states/:id', controllers.getProductByState);
 router.get('/boosters', controllers.getBoosters);
 router.get('/categories', controllers.getCategories);
-router.get('/products/search/:name', controllers.searchProductsByName);
 router.post('/update-stock', controllers.updateStock);
 router.get('/products/promotion', controllers.getProductsByPromo);
 

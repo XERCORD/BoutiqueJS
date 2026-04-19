@@ -23,7 +23,9 @@
                 <li class="li_header"><a class="nav" href="favorite.html">Vos favoris</a></li>
             </ul>
             <form action="recherche.html" method="GET" class="search">
-                <input type="text" id="recherche" name="name" placeholder="Rechercher" required class="search_bar">
+                <input type="search" id="recherche" name="name" placeholder="Rechercher" required class="search_bar" autocomplete="off">
+
+                <button type="submit" class="search_submit" title="Rechercher" aria-label="Lancer la recherche"></button>
             </form>
             <a class="a_header" href="panier.html">
                 <div id="cartBubble" class="cart-bubble"></div>
@@ -88,9 +90,8 @@
         <div class="info">
             <h1>Informations</h1>
             <p><a class="nav" href="about.html">Qui sommes-nous</a></p>
-            <p><a class="nav" href="">CGV</a></p>
+            <p><a class="nav" href="cgv.html">CGV</a></p>
             <p><a class="nav" href="contact.html">Contactez-nous</a></p>
-            <p><a class="nav" href="">Plan du site</a></p>
         </div>
     </footer>
     </body>

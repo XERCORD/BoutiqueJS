@@ -1,0 +1,516 @@
+/**
+ * CGV — thème "contrat de duel" / carte holographique
+ */
+
+@font-face {
+    font-family: 'Rubik_Light';
+    src: url(../font/Rubik-Light.ttf);
+}
+
+.cgv-page {
+    --cgv-ink: #1a0f18;
+    --cgv-gold: #e8c547;
+    --cgv-violet: #4a2d6b;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem 3.5rem;
+}
+
+/* --- Hero --- */
+.cgv-hero {
+    position: relative;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    padding: 2.75rem 1.75rem 2.5rem;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #1e1030 0%, #2d1f45 35%, #1a3a72 70%, #0f1729 100%);
+    box-shadow:
+        0 0 0 1px rgba(232, 197, 71, 0.35),
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.cgv-hero::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: conic-gradient(
+        from 180deg at 50% 50%,
+        transparent 0deg,
+        rgba(255, 203, 5, 0.06) 60deg,
+        transparent 120deg,
+        rgba(91, 45, 138, 0.12) 200deg,
+        transparent 280deg
+    );
+    animation: cgv-hero-spin 28s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes cgv-hero-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.cgv-hero__shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.07) 48%,
+        rgba(255, 230, 120, 0.12) 50%,
+        rgba(255, 255, 255, 0.06) 52%,
+        transparent 58%
+    );
+    background-size: 200% 100%;
+    animation: cgv-shimmer 7s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes cgv-shimmer {
+    0%,
+    100% {
+        background-position: 200% 0;
+    }
+    50% {
+        background-position: -200% 0;
+    }
+}
+
+.cgv-hero__inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.cgv-hero__seal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cgv-gold);
+    border: 1px solid rgba(232, 197, 71, 0.45);
+    background: rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+}
+
+.cgv-hero h1 {
+    font-size: clamp(1.65rem, 4.5vw, 2.35rem);
+    margin: 0 0 0.6rem;
+    line-height: 1.15;
+    background: linear-gradient(90deg, #fff 0%, var(--brand-yellow) 45%, #fff 90%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: cgv-title-glow 6s ease-in-out infinite;
+}
+
+@keyframes cgv-title-glow {
+    0%,
+    100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+.cgv-hero__subtitle {
+    font-family: 'Rubik_Light', sans-serif;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.98rem;
+    max-width: 36rem;
+    margin: 0 auto 1.25rem;
+    line-height: 1.55;
+}
+
+.cgv-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: 'Rubik_Light', sans-serif;
+}
+
+.cgv-hero__meta span {
+    padding: 0.25rem 0.65rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Layout grid --- */
+.cgv-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Ancres : évite que le titre soit masqué sous le header au clic */
+.cgv-anchor {
+    scroll-margin-top: 6rem;
+}
+
+/* --- Sommaire (carte « deck » — même ADN que le hero) --- */
+.cgv-toc-wrap {
+    position: sticky;
+    top: 1rem;
+    z-index: 1;
+}
+
+.cgv-toc {
+    position: relative;
+    padding: 1.35rem 1rem 1.25rem 1.1rem;
+    border-radius: 18px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 5.5rem);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(232, 197, 71, 0.4) rgba(0, 0, 0, 0.2);
+    background: linear-gradient(155deg, #1a1228 0%, #231a3a 38%, #162447 100%);
+    border: 1px solid rgba(232, 197, 71, 0.28);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+        0 18px 48px rgba(0, 0, 0, 0.35),
+        0 0 40px rgba(91, 45, 138, 0.12);
+}
+
+.cgv-toc::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cgv-toc::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+}
+
+.cgv-toc::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(232, 197, 71, 0.55), rgba(90, 60, 140, 0.45));
+    border-radius: 999px;
+}
+
+.cgv-toc::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        125deg,
+        transparent 35%,
+        rgba(255, 230, 120, 0.06) 48%,
+        rgba(120, 180, 255, 0.05) 52%,
+        transparent 65%
+    );
+    pointer-events: none;
+}
+
+.cgv-toc::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(232, 197, 71, 0.55),
+        rgba(255, 255, 255, 0.2),
+        rgba(232, 197, 71, 0.55),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.cgv-toc h2 {
+    position: relative;
+    z-index: 1;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0 0 1.1rem;
+    padding: 0 0 0.85rem 0.15rem;
+    border-bottom: none;
+    font-weight: 600;
+}
+
+.cgv-toc h2::after {
+    content: "";
+    display: block;
+    margin-top: 0.65rem;
+    height: 3px;
+    width: 3rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--cgv-gold), rgba(255, 255, 255, 0.35));
+    box-shadow: 0 0 12px rgba(232, 197, 71, 0.45);
+}
+
+.cgv-toc ul {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 0.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    counter-reset: cgv-toc;
+}
+
+.cgv-toc li {
+    margin: 0;
+}
+
+/* Numéros 01…11 alignés sur les articles 1. … 11. (le préambule n’est pas numéroté) */
+.cgv-toc li:not(.cgv-toc__item--preface) {
+    counter-increment: cgv-toc;
+}
+
+.cgv-toc a {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.85rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0.55rem 0.65rem;
+    padding: 0.55rem 0.6rem 0.55rem 0.45rem;
+    border-radius: 10px;
+    font-family: 'Rubik_Light', sans-serif;
+    font-size: 0.8125rem;
+    line-height: 1.38;
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    border: 1px solid transparent;
+    background: rgba(0, 0, 0, 0.12);
+    transition:
+        background 0.22s ease,
+        border-color 0.22s ease,
+        color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.cgv-toc li:not(.cgv-toc__item--preface) a::before {
+    content: counter(cgv-toc, decimal-leading-zero);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--cgv-gold);
+    opacity: 0.55;
+    line-height: 1.45;
+    padding-top: 0.12rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.cgv-toc a:hover {
+    background: rgba(232, 197, 71, 0.1);
+    border-color: rgba(232, 197, 71, 0.22);
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.cgv-toc li:not(.cgv-toc__item--preface) a:hover::before {
+    opacity: 0.95;
+}
+
+.cgv-toc a:focus-visible {
+    outline: 2px solid var(--cgv-gold);
+    outline-offset: 2px;
+}
+
+.cgv-toc a.is-active {
+    background: linear-gradient(95deg, rgba(232, 197, 71, 0.18) 0%, rgba(74, 45, 107, 0.35) 100%);
+    border-color: rgba(232, 197, 71, 0.45);
+    color: #fff;
+    font-weight: 600;
+    box-shadow:
+        0 0 20px rgba(232, 197, 71, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.cgv-toc li:not(.cgv-toc__item--preface) a.is-active::before {
+    opacity: 1;
+    color: #fff1a8;
+    text-shadow: 0 0 10px rgba(232, 197, 71, 0.6);
+}
+
+.cgv-toc a.is-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 62%;
+    border-radius: 0 4px 4px 0;
+    background: linear-gradient(180deg, var(--cgv-gold), #c9a227);
+    box-shadow: 0 0 10px rgba(232, 197, 71, 0.5);
+}
+
+.cgv-toc li.cgv-toc__item--preface a {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 0.65rem;
+}
+
+.cgv-toc li.cgv-toc__item--preface a::before {
+    display: none;
+    content: none;
+}
+
+/* --- Content --- */
+.cgv-content {
+    min-width: 0;
+}
+
+.cgv-intro {
+    padding: 1.25rem 1.35rem;
+    margin-bottom: 1.5rem;
+    border-radius: 14px;
+    background: rgba(255, 203, 5, 0.12);
+    border: 1px dashed rgba(60, 90, 166, 0.35);
+    font-family: 'Rubik_Light', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.cgv-details {
+    margin-bottom: 0.85rem;
+    border-radius: 14px;
+    background: var(--surface);
+    border: 1px solid rgba(60, 90, 166, 0.15);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.cgv-details[open] {
+    border-color: rgba(60, 90, 166, 0.35);
+    box-shadow: 0 10px 36px rgba(60, 90, 166, 0.15);
+}
+
+.cgv-details summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 1.15rem;
+    font-family: 'Rubik_Black', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    user-select: none;
+    position: relative;
+}
+
+.cgv-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.cgv-details summary::before {
+    content: "⚡";
+    font-size: 1.1rem;
+    opacity: 0.85;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cgv-details[open] summary::before {
+    transform: rotate(90deg) scale(1.1);
+}
+
+.cgv-details summary:hover {
+    background: linear-gradient(90deg, rgba(255, 203, 5, 0.08), transparent);
+}
+
+.cgv-details__body {
+    padding: 0 1.15rem 1.2rem;
+    font-family: 'Rubik_Light', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #3a4a66;
+    border-top: 1px solid rgba(60, 90, 166, 0.08);
+}
+
+.cgv-details__body p {
+    margin: 0 0 0.75rem;
+}
+
+.cgv-details__body p:last-child {
+    margin-bottom: 0;
+}
+
+.cgv-details__body ul {
+    margin: 0.5rem 0 0.75rem 1.1rem;
+    padding: 0;
+}
+
+.cgv-details__body li {
+    margin-bottom: 0.35rem;
+}
+
+.cgv-note {
+    margin-top: 2rem;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-family: 'Rubik_Light', sans-serif;
+    color: #5a6578;
+    background: #eef1f8;
+    border-left: 4px solid var(--brand-blue);
+}
+
+.cgv-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.75rem;
+    font-size: 0.9rem;
+    color: var(--brand-blue);
+    font-family: 'Rubik_Light', sans-serif;
+}
+
+.cgv-back:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 900px) {
+    .cgv-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cgv-toc-wrap {
+        position: relative;
+        top: auto;
+    }
+
+    .cgv-toc {
+        max-height: min(52vh, 24rem);
+        padding: 1.25rem 0.65rem 1.15rem 0.85rem;
+    }
+
+    .cgv-toc ul {
+        gap: 0.2rem;
+    }
+
+    .cgv-toc a {
+        min-height: 2.75rem;
+        padding: 0.6rem 0.65rem 0.6rem 0.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cgv-hero::before,
+    .cgv-hero__shine,
+    .cgv-hero h1 {
+        animation: none !important;
+    }
+}
